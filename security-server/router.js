@@ -9,13 +9,14 @@ module.exports = function(app) {
             otherRoutes = express.Router();
 
     apiRoutes.use('/auth', authRoutes);
-    // /api/auth/register
+    // /api/auth/register -- POST
     authRoutes.post('/register', AuthenticationController.register);
-    // /api/auth/login
+    // /api/auth/login -- POST
     authRoutes.post('/login', AuthenticationController.login);
-    // /api/auth/authorize
+    // /api/auth/authorize -- GET -- needs authentication
     authRoutes.get('/authorize',passportService.requireAuth,AuthenticationController.authorize);
 
+    // /api/stuff/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
         res.json({user: req.user.toJson()})});
     apiRoutes.use('/stuff',otherRoutes);
