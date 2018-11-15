@@ -12,15 +12,13 @@ const TaskSchema = new Schema({
         type: String,
         required: false
     },
-    dateCreated: {
+    dueDate: {
         type: Date,
-        required: true 
-    },
-    dateExpire: {
-        type: Date,
-        required: false
+        required: false 
     }
-    
-})
+},
+  {
+    timestamps: true,
+  })
 
 module.exports = mongoose.model('Task', TaskSchema);
