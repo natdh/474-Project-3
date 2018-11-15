@@ -16,6 +16,7 @@ module.exports = function(app) {
     authRoutes.post('/login', AuthenticationController.login);
     // /api/auth/authorize -- GET -- needs authentication
     authRoutes.get('/authorize',passportService.requireAuth,AuthenticationController.authorize);
+
     // /api/home/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
         res.json({user: req.user.toJson()})});
