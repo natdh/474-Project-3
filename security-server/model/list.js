@@ -5,9 +5,8 @@ const mongoose = require('mongoose'),
 
 const ListSchema = new Schema(
   {
-    list: {
-      
-    }
+    
+    
   },
   {
     timestamps: true,
