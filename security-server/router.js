@@ -16,19 +16,12 @@ module.exports = function(app) {
     authRoutes.post('/login', AuthenticationController.login);
     // /api/auth/authorize -- GET -- needs authentication
     authRoutes.get('/authorize',passportService.requireAuth,AuthenticationController.authorize);
-<<<<<<< HEAD
-
     // /api/home/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
         res.json({user: req.user.toJson()})});
-    otherRoutes.get('/mylists');
+    // /api/home/mylists -- GET -- needs authentication
+    //otherRoutes.get('/mylists', passportService.requireAuth, FUNCTIONCALLHERE); //TODO
     apiRoutes.use('/home',otherRoutes);
-=======
-    // /api/stuff/info -- GET -- needs authentication
-    otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
-        res.json({user: req.user.toJson()})});
-        
-    apiRoutes.use('/stuff',otherRoutes);
->>>>>>> 76e1d02f05e883734fe0018f9c4583fece3bfac1
+
     app.use('/api', apiRoutes);
 };
