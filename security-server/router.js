@@ -1,7 +1,10 @@
 const AuthenticationController = require('./controllers/authentication'),  
       express = require('express'),
       passportService = require('./security/passport');
-     
+
+const TaskController = require('./controllers/tasks'),  
+      express = require('express');
+           
 module.exports = function(app) {  
     // Initializing route groups
     const apiRoutes = express.Router(),
