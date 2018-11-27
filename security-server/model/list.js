@@ -4,10 +4,6 @@ const mongoose = require('mongoose'),
   bcrypt = require('bcrypt-nodejs');
 
 const ListSchema = new Schema({
-  task: {
-    type: task,
-    required: true 
-  },
   description: {
     type: String,
     required: false
@@ -16,8 +12,12 @@ const ListSchema = new Schema({
     type: String,
     required: true
   },
-  parent: {
+  parent: { 
     type: String,
+    required: false
+  },
+  tasks: {
+    type: Array,
     required: false
   }
 },
