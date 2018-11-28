@@ -1,10 +1,7 @@
 const AuthenticationController = require('./controllers/authentication'),  
       express = require('express'),
       passportService = require('./security/passport');
-
-const TaskController = require('./controllers/tasks'),  
-      express = require('express');
-           
+     
 module.exports = function(app) {  
     // Initializing route groups
     const apiRoutes = express.Router(),
@@ -19,7 +16,7 @@ module.exports = function(app) {
     authRoutes.post('/login', AuthenticationController.login);
     // /api/auth/authorize -- GET -- needs authentication
     authRoutes.get('/authorize',passportService.requireAuth,AuthenticationController.authorize);
-
+    
     // /api/home/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
         res.json({user: req.user.toJson()})});
