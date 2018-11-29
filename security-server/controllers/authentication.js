@@ -46,11 +46,13 @@ exports.register = function (req, res, next) {
     const clientid = req.body.clientid;
     let authAPIs = req.body.authAPIs;
 
-    if (!authAPIs)
+    if (!authAPIs) {
         authAPIs = [];
-    if (!clientid)
-        return res.status(422).send({ error: 'No clientid passed to register against.' })
-    if (!email) {
+    }
+    if (!clientid) {
+        return res.status(422).send({ error: 'No clientid passed to register against.' });
+    }
+     if (!email) {
         return res.status(422).send({ error: 'You must enter an email address.' });
     }
     if (!firstName || !lastName) {
