@@ -9,6 +9,7 @@ import { LoginComponent } from './ui/login/login.component';
 
 import { LoggedInDirective } from './ui/directives/logged-in.directive';
 import { RegisterComponent } from './ui/register/register.component';
+import { GoogleComponent } from './ui/google/google.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { RegisterComponent } from './ui/register/register.component';
     LocalStorageModule.withConfig({prefix: 'test-app', storageType: 'localStorage'})
   ],
   providers: [SecurityService, UserService ],
-  declarations: [LoginComponent, LoggedInDirective,  RegisterComponent],
+  declarations: [LoginComponent, LoggedInDirective,  RegisterComponent, GoogleComponent],
   exports: [LoginComponent, LoggedInDirective]
 })
 export class SecurityModule implements OnInit {
