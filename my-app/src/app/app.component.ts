@@ -1,3 +1,5 @@
+import { UserService } from './security/services/user.service';
+import { SecurityService } from './security/services/security.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'app';
+  constructor(private _secSvc: SecurityService) { }
+
+  logout = () => this._secSvc.logout();
 }
