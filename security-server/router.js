@@ -2,8 +2,7 @@ const AuthenticationController = require('./controllers/authentication'),
       express = require('express'),
       passportService = require('./security/passport');
 
-const TaskController = require('./controllers/tasks'),  
-      express = require('express');
+const TaskController = require('./controllers/tasks');
            
 module.exports = function(app) {  
     // Initializing route groups
