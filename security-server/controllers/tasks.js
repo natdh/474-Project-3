@@ -1,19 +1,17 @@
 const List = require('../model/list'), 
-    Task = require('../model/task'); 
+    Task = require('../model/task');
     
 //////list//////
 exports.getList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
-        for(var i = 0; i < req.user.lists.length; i++)
-        {
-          if(req.user.lists[i]._id == req.body.listid)
-          {        
-            var lst = req.user.lists[i];
-            lst = List(lst);
-            return res.json({list: lst.toJson()});
-          }
+        for(var i = 0; i < req.user.lists.length; i++) {
+            if(req.user.lists[i]._id == req.body.listid) {        
+                var lst = req.user.lists[i];
+                lst = List(lst);
+                return res.json({list: lst.toJson()});
+            }
         }
         return res.status(422).send({ error: 'No list of that id.'});
     }
@@ -33,11 +31,10 @@ exports.createList = function (req, res, next) {
         desc: desc,
         name: name,
         paren: paren,
-        tasks: {}
+        tasks: tasks
     });
     
     req.user.lists.push(list);
-    
     req.user.save(function (err, user) {
         if (err) { return next(err); }
         let listInfo = list.toJson();
@@ -47,12 +44,11 @@ exports.createList = function (req, res, next) {
     });
 }
 
-//todo
 exports.updateList = function(req,res,next){
+    var lstidx = -1;
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
-        var lstidx = -1;
         for(var i = 0; i < req.user.lists.length; i++) {
             if(req.user.lists[i]._id == req.body.listid) {        
                 lstidx = i;
@@ -67,30 +63,29 @@ exports.updateList = function(req,res,next){
     const name = req.body.name; //required
     const paren = req.body.paren;
     const tasks = req.body.tasks;
-    
+
     if (!name) {
         return res.status(422).send({ error: 'No name for list given.' });
     }
     
     let list = new List({
-        desc: desc,
+        _id: req.user.lists[lstidx]._id, //maintains old id
+        desc: desc || req.user.lists[lstidx].desc,
         name: name,
-        paren: paren,
-        tasks: {}
+        paren: paren || req.user.lists[lstidx].paren,
+        tasks: tasks || req.user.lists[lstidx].tasks
     });
     
+    req.user.lists.splice(lstidx, 1);
     req.user.lists.push(list);
-    
+
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        let listInfo = list.toJson();
-        res.status(201).json({
+        let listInfo = List(req.user.lists[lstidx]).toJson();
+        return res.status(201).json({
             list: listInfo
         });
     });
-    
-    
-    return res.status(200).json({stub:'stub'});
 }
 
 exports.deleteList = function(req,res,next){
@@ -98,10 +93,8 @@ exports.deleteList = function(req,res,next){
         return res.status(422).send({ error: 'No listid given.' });
     } else {
         var lstidx = -1;
-        for(var i = 0; i < req.user.lists.length; i++)
-        {
-          if(req.user.lists[i]._id == req.body.listid)
-          {      
+        for(var i = 0; i < req.user.lists.length; i++) {
+          if(req.user.lists[i]._id == req.body.listid) {      
               lstidx = i;
           }
         }
@@ -109,7 +102,6 @@ exports.deleteList = function(req,res,next){
             return res.status(422).send({ error: 'No list of that id.'});
         } else {
             req.user.lists.splice(lstidx, 1);
-
             req.user.save(function (err, user) {
                 if (err) { return next(err); }
                 let userInfo = user.toJson();
@@ -156,23 +148,21 @@ exports.createTask = function(req,res,next){
         return res.status(422).send({ error: 'No name for task given.' });
     }
     
-    let task = new Task({
-        details: details,
-        name: name,
-        dueDate: dueDate,
-    });
-    
     var lstidx = -1;
-    
     for(var i = 0; i < req.user.lists.length; i++) {
         if(req.user.lists[i]._id == req.body.listid) {        
             lstidx = i;
         }
     }
-    
     if (lstidx == -1) {
         return res.status(422).send({ error: 'No list of that id.'});
     }
+    
+    let task = new Task({
+        details: details,
+        name: name,
+        dueDate: dueDate
+    });
     
     req.user.lists[lstidx].tasks.push(task);
     
