@@ -1,34 +1,22 @@
-<div class="row" id="login">
-    <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-           <span class="glyphicon glyphicon-lock"></span> Login</div>
-        <div class="panel-body">
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label for="loginMail" class="col-sm-3 control-label">
-             Email</label>
-            <div class="col-sm-9">
-              <input [(ngModel)]="email" type="email" class="form-control" name="loginMail" id="loginMail" placeholder="Email" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="loginPass" class="col-sm-3 control-label">
-            Password</label>
-            <div class="col-sm-9">
-              <input [(ngModel)]="password" type="password" class="form-control" name="loginPass" id="loginPass" placeholder="Password" required>
-            </div>
-          </div>
-          <div class="form-group last">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button (click)="loginClick()" type="submit" class="btn btn-success btn-sm">
-              Sign in</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="panel-footer">
-        Not Registered? <a>Register here</a></div>
-      </div>
-    </div>
+<form action="action_page.php">
+  <div class="imgcontainer">
+      <img src="https://b-townyouth.co.uk/wp-content/uploads/thingstodoJune16Small2.png" alt="Avatar" class="avatar">
   </div>
+
+  <div class="container">
+    <label for="loginMail"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="loginMail" required>
+
+    <label for="loginPass"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="loginPass" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <span class="reg">Need to <a href="http://localhost:4200/register">register?</a></span>
+  </div>
+</form>
