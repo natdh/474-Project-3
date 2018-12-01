@@ -28,3 +28,5 @@ export class SecurityModule implements OnInit {
   ngOnInit(){
   }
 }
+
+export {RegisterComponent} from './ui/register/register.component';
