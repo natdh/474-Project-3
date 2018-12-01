@@ -17,6 +17,10 @@ const UserSchema = new Schema({
     firstName: { type: String },
     lastName: { type: String }
   },
+  lists: {
+    type: Array,
+    required: false
+  },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date }
 },
@@ -58,7 +62,8 @@ UserSchema.methods.toJson = function () {
     lastName: this.profile.lastName,
     email: this.email,
     role: this.role,
-    provider: this.provider
+    provider: this.provider,
+    lists: this.lists
   }
 }
 module.exports = mongoose.model('User', UserSchema);

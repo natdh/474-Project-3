@@ -3,7 +3,6 @@ const mongoose = require('mongoose'),
     User = require('../model/user');//needed?
 
 const TaskSchema = new Schema({
-    //ID???
     name: {
         type: String,
         required: true
@@ -20,5 +19,15 @@ const TaskSchema = new Schema({
   {
     timestamps: true,
   })
+  
+    
+TaskSchema.methods.toJson = function () {
+  return {
+    _id: this._id,
+    details: this.details,
+    name: this.name,
+    dueDate: this.dueDate
+  }
+}
 
 module.exports = mongoose.model('Task', TaskSchema);

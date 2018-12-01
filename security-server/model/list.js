@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
   bcrypt = require('bcrypt-nodejs');
 
 const ListSchema = new Schema({
-  description: {
+  desc: {
     type: String,
     required: false
   },
@@ -12,7 +12,7 @@ const ListSchema = new Schema({
     type: String,
     required: true
   },
-  parent: { 
+  paren: { 
     type: String,
     required: false
   },
@@ -24,5 +24,14 @@ const ListSchema = new Schema({
   {
     timestamps: true,
   });
+  
+ListSchema.methods.toJson = function () {
+  return {
+    _id: this._id,
+    description: this.desc,
+    name: this.name,
+    tasks: this.tasks
+  }
+}
 
 module.exports = mongoose.model('List', ListSchema);

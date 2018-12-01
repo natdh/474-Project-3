@@ -24,7 +24,31 @@ module.exports = function(app) {
     // /api/home/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
         res.json({user: req.user.toJson()})});
-    // /api/home/mylists -- GET -- needs authentication
-    //otherRoutes.get('/mylists', passportService.requireAuth, FUNCTIONCALLHERE); //TODO
+        
+    // /api/home/list -- GET -- needs authentication
+    otherRoutes.get('/list',passportService.requireAuth,TaskController.getList);
     
+    // /api/home/list -- POST -- needs authentication
+    otherRoutes.post('/list',passportService.requireAuth,TaskController.createList);
+    
+    // /api/home/list -- PUT -- needs authentication - maybe combine with post? idk
+    otherRoutes.put('/list',passportService.requireAuth,TaskController.updateList);
+    
+    // /api/home/list -- DELETE -- needs authentication
+    otherRoutes.delete('/list',passportService.requireAuth,TaskController.deleteList);
+    
+    // /api/home/task -- GET -- needs authentication
+    otherRoutes.get('/task',passportService.requireAuth,function(req,res,next){
+        if (!req.body.listid || !req.body.taskid) {
+            return res.status(422).send({ error: 'No listid or taskid given.' });
+        } else if (!req.user.lists[req.body.listid]) {
+            return res.status(422).send({ error: 'No list of that id.' });
+        } else if (!req.user.lists[req.body.listid].tasks[req.body.taskid]) {
+            return res.status(422).send({ error: 'No task of that id.' });
+        } else {
+            res.json({list: req.user.lists[req.body.listid].tasks[req.body.taskid].toJson()});
+        }
+        
+    });
+        
 };
