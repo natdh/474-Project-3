@@ -20,6 +20,16 @@ export class SecurityService {
       });
   }
 
+  public register(userName: string, password: string, client: string) {
+    return this._http.post('http://localhost:3000/api/auth/register',
+      {email: userName, password: password, clientid: client },
+      {headers: this.headers })
+      .map(user => {
+        this._userSvc.setUser(user.json());
+        return user.json();
+      });
+  }
+
   public logout() {
     this._userSvc.removeUser();
   }

@@ -11,7 +11,7 @@ import { SecureComponent } from './views/secure/secure.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    SecureComponent
+    SecureComponent,
   ],
   imports: [
     BrowserModule,
