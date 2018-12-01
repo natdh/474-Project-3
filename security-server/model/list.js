@@ -1,7 +1,6 @@
 //mongoose is a form of communication between node and mongo
 const mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  bcrypt = require('bcrypt-nodejs');
+  Schema = mongoose.Schema;
 
 const ListSchema = new Schema({
   desc: {
@@ -18,7 +17,7 @@ const ListSchema = new Schema({
   },
   tasks: {
     type: Array,
-    required: false
+    required: true
   }
 },
   {

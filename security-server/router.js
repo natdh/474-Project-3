@@ -23,7 +23,9 @@ module.exports = function(app) {
     
     // /api/home/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
-        res.json({user: req.user.toJson()})});
+        req.user.lists = JSON.parse(req.user.lists);
+        res.json({user: req.user.toJson()})
+    });
         
     // /api/home/list -- GET -- needs authentication
     otherRoutes.get('/list',passportService.requireAuth,TaskController.getList);

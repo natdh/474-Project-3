@@ -6,10 +6,10 @@ exports.getList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
+        req.user.lists = JSON.parse(req.user.lists);
         for(var i = 0; i < req.user.lists.length; i++) {
             if(req.user.lists[i]._id == req.body.listid) {        
-                var lst = req.user.lists[i];
-                lst = List(lst);
+                var lst = List(req.user.lists[i]);
                 return res.json({list: lst.toJson()});
             }
         }
@@ -33,10 +33,13 @@ exports.createList = function (req, res, next) {
         paren: paren,
         tasks: tasks
     });
-    
+                
+    req.user.lists = JSON.parse(req.user.lists);
     req.user.lists.push(list);
+    req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
-        if (err) { return next(err); }
+        if (err) { return next(err); } 
+        req.user.lists = JSON.parse(req.user.lists);
         let listInfo = list.toJson();
         res.status(201).json({
             list: listInfo
@@ -45,20 +48,6 @@ exports.createList = function (req, res, next) {
 }
 
 exports.updateList = function(req,res,next){
-    var lstidx = -1;
-    if (!req.body.listid) {
-        return res.status(422).send({ error: 'No listid given.' });
-    } else {
-        for(var i = 0; i < req.user.lists.length; i++) {
-            if(req.user.lists[i]._id == req.body.listid) {        
-                lstidx = i;
-            }
-        }
-        if (lstidx == -1) {
-            return res.status(422).send({ error: 'No list of that id.'});
-        }
-    }
-
     const desc = req.body.desc;
     const name = req.body.name; //required
     const paren = req.body.paren;
@@ -66,6 +55,22 @@ exports.updateList = function(req,res,next){
 
     if (!name) {
         return res.status(422).send({ error: 'No name for list given.' });
+    }
+    
+    var lstidx = -1;
+    if (!req.body.listid) {
+        return res.status(422).send({ error: 'No listid given.' });
+    } else {
+        req.user.lists = JSON.parse(req.user.lists);
+        for(var i = 0; i < req.user.lists.length; i++) {
+            if(req.user.lists[i]._id == req.body.listid) {        
+                lstidx = i;
+                break;
+            }
+        }
+        if (lstidx == -1) {
+            return res.status(422).send({ error: 'No list of that id.'});
+        }
     }
     
     let list = new List({
@@ -78,9 +83,10 @@ exports.updateList = function(req,res,next){
     
     req.user.lists.splice(lstidx, 1);
     req.user.lists.push(list);
-
+    req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
+        req.user.lists = JSON.parse(req.user.lists);
         let listInfo = List(req.user.lists[lstidx]).toJson();
         return res.status(201).json({
             list: listInfo
@@ -92,18 +98,22 @@ exports.deleteList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
+        req.user.lists = JSON.parse(req.user.lists);
         var lstidx = -1;
         for(var i = 0; i < req.user.lists.length; i++) {
           if(req.user.lists[i]._id == req.body.listid) {      
               lstidx = i;
+              break;
           }
         }
         if (lstidx == -1) {
             return res.status(422).send({ error: 'No list of that id.'});
         } else {
             req.user.lists.splice(lstidx, 1);
+            req.user.lists = JSON.stringify(req.user.lists);
             req.user.save(function (err, user) {
                 if (err) { return next(err); }
+                req.user.lists = JSON.parse(req.user.lists);
                 let userInfo = user.toJson();
                 res.status(201).json({
                     deleted: true,
@@ -119,14 +129,13 @@ exports.getTask = function(req,res,next){
     if (!req.body.listid || !req.body.taskid) {
         return res.status(422).send({ error: 'No listid or taskid given.' });
     } else {
+        req.user.lists = JSON.parse(req.user.lists);
         for(var i = 0; i < req.user.lists.length; i++) {
           if (req.user.lists[i]._id == req.body.listid) {        
-            var lst = req.user.lists[i];
-            lst = List(lst);
+            var lst = List(req.user.lists[i]);
             for(var j = 0; i < req.user.lists.length; i++) {
-                if (req.user.lists[i].tasks[j] == req.body.taskid) {        
-                    var task = req.user.lists[i].tasks[j];
-                    task = Task(lst);
+                if (req.user.lists[i].tasks[j]._id == req.body.taskid) {        
+                    var task = Task(req.user.lists[i].tasks[j]);
                     return res.json({list: task.toJson()});
                 }
             }
@@ -137,7 +146,6 @@ exports.getTask = function(req,res,next){
     }
 }
 
-//todo
 exports.createTask = function(req,res,next){
     const details = req.body.details;
     const name = req.body.name;//required
@@ -147,11 +155,13 @@ exports.createTask = function(req,res,next){
     if (!name) {
         return res.status(422).send({ error: 'No name for task given.' });
     }
-    
+            
+    req.user.lists = JSON.parse(req.user.lists);
     var lstidx = -1;
     for(var i = 0; i < req.user.lists.length; i++) {
         if(req.user.lists[i]._id == req.body.listid) {        
             lstidx = i;
+            break;
         }
     }
     if (lstidx == -1) {
@@ -165,38 +175,114 @@ exports.createTask = function(req,res,next){
     });
     
     req.user.lists[lstidx].tasks.push(task);
-    
+    req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        let taskInfo = task.toJson();
+        req.user.lists = JSON.parse(req.user.lists);
+        let userInfo = user.toJson();
         res.status(201).json({
-            task: taskInfo
+            user: userInfo
         });
     });
 }
 
 //todo
 exports.updateTask = function (req, res, next) {
-    const name = req.body.name;
-    const dueDate = req.body.dueDate;
     const details = req.body.details;
-    let task = req.body.task;
+    const name = req.body.name;//required
+    const dueDate = req.body.dueDate;
+    const listid = req.body.listid;//required
 
-    //not sure what to actually return
-    let taskInfo = task.toJson();    
-    return res.status(200).json({
-        validated: true,
-        task: taskInfo
-    })
+    if (!name) {
+        return res.status(422).send({ error: 'No name for task given.' });
+    }
+    
+    var lstidx = -1;
+    if (!req.body.listid || !req.body.taskid) {
+        return res.status(422).send({ error: 'No listid or taskid given.' });
+    } else {
+        req.user.lists = JSON.parse(req.user.lists);
+        for(var i = 0; i < req.user.lists.length; i++) {
+            if(req.user.lists[i]._id == req.body.listid) {        
+                lstidx = i;
+                break;
+            }
+        }
+        if (lstidx == -1) {
+            return res.status(422).send({ error: 'No list of that id.'});
+        }
+    }
+    
+    var taskidx = -1;
+    for(var j = 0; j < req.user.lists[lstidx].tasks.length; j++) {
+        if (req.user.lists[lstidx].tasks[j]._id == req.body.taskid) {        
+            taskidx = j;
+            break;
+        }
+    }
+    if (taskidx == -1) {
+        return res.status(422).send({ error: 'No task of that id.'});
+    }
+    
+    let task = new Task({
+        _id: req.user.lists[lstidx].tasks[taskidx]._id, //maintains old id
+        details: details || req.user.lists[lstidx].details,
+        name: name,
+        dueDate: dueDate || req.user.lists[lstidx].dueDate
+    });
+    
+    req.user.lists[lstidx].tasks.splice(taskidx, 1);
+    req.user.lists[lstidx].tasks.push(task);
+    req.user.lists = JSON.stringify(req.user.lists);
+    req.user.save(function (err, user) {
+        if (err) { return next(err); }
+        req.user.lists = JSON.parse(req.user.lists);
+        let userInfo = user.toJson();
+        res.status(201).json({
+            user: userInfo
+        });
+    });
 }
 
 //todo
 exports.deleteTask = function (req, res, next) {
-    const task = req.body.task;
-
-    return res.status(200).json({
-        task: null
-    })
+  if (!req.body.listid || !req.body.taskid) {
+        return res.status(422).send({ error: 'No listid or taskid given.' });
+    } else {
+        req.user.lists = JSON.parse(req.user.lists);
+        var lstidx = -1;
+        for(var i = 0; i < req.user.lists.length; i++) {
+          if (req.user.lists[i]._id == req.body.listid) {    
+                lstidx = i;   
+                break;
+          }
+        }
+        if (lstidx == -1) {
+            return res.status(422).send({ error: 'No list of that id.' });
+        }
+        
+        var taskidx = -1;
+        for(var j = 0; j < req.user.lists[lstidx].tasks.length; j++) {
+            if (req.user.lists[lstidx].tasks[j]._id == req.body.taskid) {        
+                taskidx = j;
+                break;
+            }
+        }
+        if (taskidx == -1) {
+            return res.status(422).send({ error: 'No task of that id.' });
+        }
+        req.user.lists[lstidx].tasks.splice(taskidx, 1);
+        req.user.lists = JSON.stringify(req.user.lists);
+        req.user.save(function (err, user) {
+            if (err) { return next(err); }
+            req.user.lists = JSON.parse(req.user.lists);
+            let userInfo = user.toJson();
+            res.status(201).json({
+                deleted: true,
+                user: userInfo
+            });
+        });
+    }
 }
 
 

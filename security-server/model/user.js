@@ -19,7 +19,7 @@ const UserSchema = new Schema({
   },
   lists: {
     type: Array,
-    required: false
+    required: true
   },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date }
