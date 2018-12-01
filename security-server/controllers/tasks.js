@@ -37,16 +37,32 @@ exports.createList = function (req, res, next) {
         });
     });
 }
-
+//todo
 exports.updateList = function(req,res,next){
     return res.status(200).json({stub:'stub'});
 }
-
+//todo
 exports.deleteList = function(req,res,next){
     return res.status(200).json({stub:'stub'});
 }
 
-exports.editTask = function (req, res, next) {
+exports.getTask = function(req,res,next){
+    if (!req.body.listid || !req.body.taskid) {
+        return res.status(422).send({ error: 'No listid or taskid given.' });
+    } else if (!req.user.lists[req.body.listid]) {
+        return res.status(422).send({ error: 'No list of that id.' });
+    } else if (!req.user.lists[req.body.listid].tasks[req.body.taskid]) {
+        return res.status(422).send({ error: 'No task of that id.' });
+    } else {
+        res.json({list: req.user.lists[req.body.listid].tasks[req.body.taskid].toJson()});
+    }
+}
+//todo
+exports.createTask = function(req,res,next){
+    return res.status(200).json({stub:'stub'});
+}
+//todo
+exports.updateTask = function (req, res, next) {
     const name = req.body.name;
     const dueDate = req.body.dueDate;
     const details = req.body.details;
@@ -59,6 +75,7 @@ exports.editTask = function (req, res, next) {
         task: taskInfo
     })
 }
+//todo
 exports.deleteTask = function (req, res, next) {
     const task = req.body.task;
 

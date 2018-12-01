@@ -37,18 +37,17 @@ module.exports = function(app) {
     // /api/home/list -- DELETE -- needs authentication
     otherRoutes.delete('/list',passportService.requireAuth,TaskController.deleteList);
     
+    
     // /api/home/task -- GET -- needs authentication
-    otherRoutes.get('/task',passportService.requireAuth,function(req,res,next){
-        if (!req.body.listid || !req.body.taskid) {
-            return res.status(422).send({ error: 'No listid or taskid given.' });
-        } else if (!req.user.lists[req.body.listid]) {
-            return res.status(422).send({ error: 'No list of that id.' });
-        } else if (!req.user.lists[req.body.listid].tasks[req.body.taskid]) {
-            return res.status(422).send({ error: 'No task of that id.' });
-        } else {
-            res.json({list: req.user.lists[req.body.listid].tasks[req.body.taskid].toJson()});
-        }
-        
-    });
+    otherRoutes.get('/task',passportService.requireAuth,TaskController.getTask);
+    
+    // /api/home/task -- POST -- needs authentication
+    otherRoutes.post('/task',passportService.requireAuth,TaskController.createTask);
+    
+    // /api/home/task -- PUT -- needs authentication - maybe combine with post? idk
+    otherRoutes.put('/task',passportService.requireAuth,TaskController.updateTask);
+    
+    // /api/home/task -- DELETE -- needs authentication
+    otherRoutes.delete('/task',passportService.requireAuth,TaskController.deleteTask);
         
 };
