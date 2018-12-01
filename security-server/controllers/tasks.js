@@ -4,10 +4,17 @@ const List = require('../model/list'),
 exports.getList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
-    } else if (!req.user.lists[req.body.listid]) {
-        return res.status(422).send({ error: 'No list of that id.' });
     } else {
-        res.json({list: req.user.lists[req.body.listid].toJson()});
+        for(var i = 0; i < req.user.lists.length; i++)
+        {
+          if(req.user.lists[i]._id == req.body.listid)
+          {        
+            var lst = req.user.lists[i];
+            lst = List(lst);
+            return res.json({list: lst.toJson()});
+          }
+        }
+        return res.status(422).send({ error: 'No list of that id.'});
     }
 }
 
