@@ -6,16 +6,25 @@
     Login
   </div>
   <div class="container">
-    <label for="loginMail"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="loginMail" required>
-
-    <label for="loginPass"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="loginPass" required>
-
-    <button type="submit">Login</button>
+    <div class="form-group">
+        <label for="loginMail" class="col-sm-3 control-label">
+         Email</label>
+        <div class="col-sm-9">
+          <input [(ngModel)]="email" type="email" class="form-control" name="loginMail" id="loginMail" placeholder="Email" required>
+        </div>
+      </div>
+    <div class="form-group">
+        <label for="registerMail" class="col-sm-3 control-label">
+        Password</label>
+        <div class="col-sm-9">
+          <input [(ngModel)]="password" type="password" class="form-control" name="loginPass" id="loginPass" placeholder="Login" required>
+        </div>
+    </div>
+    <button (click)="loginClick()" type="submit" class="btn btn-success btn-sm">
+      Login</button>
     <div class="container">
         <span class="reg">Need to <a href="http://localhost:4200/register">register?</a></span>
-      </div>
+    </div>
   </div>
 
 
