@@ -206,5 +206,5 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 "taskid" : "5c043b3828efe4b7469af2bb"
 ### Response
-user: {...}
+deleted: true, user: {...}
 
