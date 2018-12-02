@@ -70,9 +70,9 @@ Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body 
 #### (required: name)
-"name" : "scrabble", 
+"name" : "word search", 
 
-"desc" : "boardgame", 
+"desc" : "game", 
 
 "paren" : "paren"
 ### Response
@@ -144,7 +144,7 @@ Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body 
 #### (required: name, listid)
-"name" : "a subtask",
+"name" : "a task",
 
 "details" : "some details",
 
@@ -186,7 +186,11 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 #### (required: listid, taskid)
 "listid" : "5c043a200598fcb710478e75",
 
-"taskid" : "5c043b3828efe4b7469af2bb"
+"taskid" : "5c043b3828efe4b7469af2bb", 
+
+"details" : "a game", 
+
+"name" : "sudoku"
 ### Response
 task: {...}
 
