@@ -79,10 +79,10 @@ exports.updateList = function(req,res,next){
     
     let list = new List({
         _id: req.user.lists[lstidx]._id, //maintains old id
-        desc: desc || req.user.lists[lstidx].desc,
-        name: name,
-        paren: paren || req.user.lists[lstidx].paren,
-        tasks: tasks || req.user.lists[lstidx].tasks
+        desc: desc != undefined   ? desc : req.user.lists[lstidx].desc,
+        name: name != undefined   ? name : req.user.lists[lstidx].name,
+        paren: paren != undefined ? paren : req.user.lists[lstidx].paren,
+        tasks: tasks != undefined ? tasks : req.user.lists[lstidx].tasks
     });
     
     req.user.lists.splice(lstidx, 1);
@@ -223,13 +223,9 @@ exports.createTask = function(req,res,next){
 //todo
 exports.updateTask = function (req, res, next) {
     const details = req.body.details;
-    const name = req.body.name;//required
+    const name = req.body.name;
     const dueDate = req.body.dueDate;
     const listid = req.body.listid;//required
-
-    if (!name) {
-        return res.status(422).send({ error: 'No name for task given.' });
-    }
     
     var lstidx = -1;
     if (!req.body.listid || !req.body.taskid) {
@@ -266,10 +262,10 @@ exports.updateTask = function (req, res, next) {
     }
     
     let task = new Task({
-        _id: req.user.lists[lstidx].tasks[taskidx]._id, //maintains old id
-        details: details || req.user.lists[lstidx].details,
-        name: name,
-        dueDate: dueDate || req.user.lists[lstidx].dueDate
+        _id:     req.user.lists[lstidx].tasks[taskidx]._id, //maintains old id
+        details: details != undefined ? details : req.user.lists[lstidx].tasks[taskidx].details,
+        name:    name != undefined    ? name    : req.user.lists[lstidx].tasks[taskidx].name,
+        dueDate: dueDate != undefined ? dueDate : req.user.lists[lstidx].tasks[taskidx].dueDate
     });
     
     req.user.lists[lstidx].tasks.splice(taskidx, 1);
