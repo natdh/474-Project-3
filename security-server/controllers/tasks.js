@@ -212,10 +212,8 @@ exports.createTask = function(req,res,next){
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        req.user.lists = JSON.parse(req.user.lists);
-        let listInfo = List(req.user.lists[lstidx]).toJson();
         res.status(201).json({
-            list: listInfo
+            task : task
         });
     });
 }
@@ -273,10 +271,8 @@ exports.updateTask = function (req, res, next) {
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        req.user.lists = JSON.parse(req.user.lists);
-        let userInfo = user.toJson();
         res.status(201).json({
-            user: userInfo
+            task: task
         });
     });
 }
