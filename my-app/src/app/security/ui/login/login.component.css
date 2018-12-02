@@ -1,25 +1,43 @@
 form {
-    border: 3px solid #f1f1f1;
+    padding: 6px;
+    padding-top: 2px;
+}
+
+.panel-heading {
+    font-size: 25px;  
+    font-weight: bold;  
 }
 
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 5px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-size: small;
+}
+
+input[type=text], input[type=email] {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: small;
 }
 
 /* Set a style for all buttons */
 button {
     background-color: #8e8d8e;
     color: white;
-    padding: 14px 20px;
+    padding: 12px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
+    font-size: larger;
 }
 
 /* Add a hover effect for buttons */
@@ -27,6 +45,9 @@ button:hover {
     opacity: 0.8;
 }
 
+.container {
+    padding-top: 12px;
+}
 
 .imgcontainer {
     text-align: center;
@@ -39,6 +60,4 @@ img.avatar {
 
 span.reg {
     float: right;
-    padding-top: 16px;
-    padding-bottom: 20px;
 }
