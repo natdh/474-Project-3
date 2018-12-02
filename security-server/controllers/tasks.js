@@ -6,6 +6,9 @@ exports.getList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
+        if (req.user.lists === undefined || req.user.lists.length == 0) {
+            return res.status(422).send({ error: 'No lists.'});
+        }
         req.user.lists = JSON.parse(req.user.lists);
         for(var i = 0; i < req.user.lists.length; i++) {
             if(req.user.lists[i]._id == req.body.listid) {        
@@ -33,8 +36,10 @@ exports.createList = function (req, res, next) {
         paren: paren,
         tasks: tasks
     });
-                
-    req.user.lists = JSON.parse(req.user.lists);
+    
+    if (req.user.lists != undefined && req.user.lists.length >= 0) {
+        req.user.lists = JSON.parse(req.user.lists);
+    }
     req.user.lists.push(list);
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
@@ -57,6 +62,9 @@ exports.updateList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
+        if (req.user.lists === undefined || req.user.lists.length == 0) {
+            return res.status(422).send({ error: 'No lists.'});
+        }
         req.user.lists = JSON.parse(req.user.lists);
         for(var i = 0; i < req.user.lists.length; i++) {
             if(req.user.lists[i]._id == req.body.listid) {        
@@ -94,6 +102,9 @@ exports.deleteList = function(req,res,next){
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
     } else {
+        if (req.user.lists === undefined || req.user.lists.length == 0) {
+            return res.status(422).send({ error: 'No lists.'});
+        }
         req.user.lists = JSON.parse(req.user.lists);
         var lstidx = -1;
         for(var i = 0; i < req.user.lists.length; i++) {
@@ -125,6 +136,9 @@ exports.getTask = function(req,res,next){
     if (!req.body.listid || !req.body.taskid) {
         return res.status(422).send({ error: 'No listid or taskid given.' });
     } else {
+        if (req.user.lists === undefined || req.user.lists.length == 0) {
+            return res.status(422).send({ error: 'No lists.'});
+        }
         req.user.lists = JSON.parse(req.user.lists);
         for(var i = 0; i < req.user.lists.length; i++) {
           if (req.user.lists[i]._id == req.body.listid) {        

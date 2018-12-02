@@ -8,9 +8,13 @@ Content-Type: application/json
 ### Body 
 #### (required: email, firstName, lastName, password, clientid)
 "email": "email@gmail.com",
+
 "firstName": "John",
+
 "lastName": "Smith",
+
 "password": "0000",
+
 "clientid": "0000"
 ### Response
 user, token. Must log in now.
@@ -25,6 +29,7 @@ Content-Type: application/json
 ### Body
 #### (required: email, password)
 "email": "email@gmail.com"
+
 "password": "0000"
 ### Response
 user, token. Must put *this* token in the headers now.
@@ -54,11 +59,14 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 POST
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body 
 #### (required: name)
 "name" : "scrabble", 
+
 "desc" : "boardgame", 
+
 "paren" : "paren"
 
 ## Read List
@@ -68,6 +76,7 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 GET
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 #### (required: listid)
@@ -80,12 +89,16 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 PUT
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 #### (required: listid)
 "listid" : "5c030af7339b58aa8d34fa1f",
+
 "name" : "scrabble blah",
+
 "desc" : "a boardgame", 
+
 "paren" : "paren"
 
 ## Delete List
@@ -95,6 +108,7 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 DELETE
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 #### (required: listid)
@@ -107,6 +121,7 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 POST
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 
@@ -117,6 +132,7 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 GET
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 
@@ -127,6 +143,7 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 PUT
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 
@@ -138,5 +155,6 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 DELETE
 ### Headers
 Content-Type: application/json
+
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
