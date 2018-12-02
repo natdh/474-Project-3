@@ -20,9 +20,9 @@ export class SecurityService {
       });
   }
 
-  public register(userName: string, password: string, client: string) {
+  public register(userName: string, password: string, firstName: string, lastName: string, client: string) {
     return this._http.post('http://localhost:3000/api/auth/register',
-      {email: userName, password: password, clientid: client },
+      {email: userName, password: password, firstName: firstName, lastName: lastName, clientid: client },
       {headers: this.headers })
       .map(user => {
         this._userSvc.setUser(user.json());
