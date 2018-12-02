@@ -1,9 +1,9 @@
 Register
 --------
-*Path*
+**Path**
 /api/auth/register
 
-*Method*
+**Method**
 POST
 
 **Headers**
@@ -18,86 +18,86 @@ Content-Type: application/json
 
 Login
 --------
-*Path*
+**Path**
 /api/auth/login
 
-*Method*
+**Method**
 POST
 
-*Headers*
+**Headers**
 Content-Type: application/json
 
-*Body*
+**Body**
 "email": "email@gmail.com"
 "password": "0000"
 
 Check authorization
 --------
-*Path*
+**Path**
 /api/auth/authorize
 
-*Method*
+**Method**
 GET
 
-*Headers*
+**Headers**
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 Info - gets you your full user json
 --------
-*Path*
+**Path**
 /api/home/info
 
-*Method*
+**Method**
 GET
 
-*Headers*
+**Headers**
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 Create List
 --------
-*Path*
+**Path**
 /api/home/list
 
-*Method*
+**Method**
 POST
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body* (required: name)
+**Body** (required: name)
 "name" : "scrabble", 
 "desc" : "boardgame", 
 "paren" : "paren"
 
 Read List
 --------
-*Path*
+**Path**
 /api/home/list
 
-*Method*
+**Method**
 GET
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body* (required: listid)
+**Body** (required: listid)
 "listid" : "5c030af7339b11aa8d34f3af"
 
 Update List
 --------
-*Path*
+**Path**
 /api/home/list
 
-*Method*
+**Method**
 PUT
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body* (required: listid)
+**Body** (required: listid)
 "listid" : "5c030af7339b58aa8d34fa1f",
 "name" : "scrabble blah",
 "desc" : "a boardgame", 
@@ -105,40 +105,40 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 Delete List
 --------
-*Path*
+**Path**
 /api/home/list
 
-*Method*
+**Method**
 DELETE
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body* (required: listid)
+**Body** (required: listid)
 "listid" : "5c030af7339b58aa8d34fa1f"
 
 Create Task
 --------
-*Path*
+**Path**
 /api/home/task
 
-*Method*
+**Method**
 POST
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body*
+**Body**
 
 
 Read Task
 --------
-*Path*
+**Path**
 /api/home/task
 
-*Method*
+**Method**
 GET
 
 *Headers*
@@ -146,32 +146,32 @@ Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 
-*Body*
+**Body**
 
 Update Task
 --------
-*Path*
+**Path**
 /api/home/task
 
-*Method*
+**Method**
 PUT
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body*
+**Body**
 
 Delete Task
 --------
-*Path*
+**Path**
 /api/home/task
 
-*Method*
+**Method**
 DELETE
 
-*Headers*
+**Headers**
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-*Body*
+**Body**
