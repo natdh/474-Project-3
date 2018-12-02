@@ -1,7 +1,7 @@
-##Register
-###Path
+## Register
+### Path
 /api/auth/register
-##Method
+## Method
 
 POST
 
