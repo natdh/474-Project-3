@@ -51,6 +51,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 GET
 ### Headers
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
+### Response
+user: {...}
 
 ## Create List
 ### Path
@@ -68,6 +70,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 "desc" : "boardgame", 
 
 "paren" : "paren"
+### Response
+list: {_id: ... name: .. }
 
 ## Read List
 ### Path
@@ -81,6 +85,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 #### (required: listid)
 "listid" : "5c030af7339b11aa8d34f3af"
+### Response
+list: {_id: ... name: .. }
 
 ## Update List
 ### Path
@@ -100,6 +106,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 "desc" : "a boardgame", 
 
 "paren" : "paren"
+### Response
+list: {_id: ... name: .. }
 
 ## Delete List
 ### Path
@@ -113,6 +121,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 #### (required: listid)
 "listid" : "5c030af7339b58aa8d34fa1f"
+### Response
+deleted: true, user: {...}
 
 ## Create Task
 ### Path

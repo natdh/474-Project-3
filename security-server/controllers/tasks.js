@@ -37,7 +37,7 @@ exports.createList = function (req, res, next) {
         tasks: tasks
     });
     
-    if (req.user.lists != undefined && req.user.lists.length >= 0) {
+    if (req.user.lists != undefined && req.user.lists.length > 0) {
         req.user.lists = JSON.parse(req.user.lists);
     }
     req.user.lists.push(list);
@@ -165,6 +165,10 @@ exports.createTask = function(req,res,next){
     if (!name) {
         return res.status(422).send({ error: 'No name for task given.' });
     }
+    
+    if (req.user.lists === undefined || req.user.lists.length == 0) {
+        return res.status(422).send({ error: 'No lists.'});
+    }
             
     req.user.lists = JSON.parse(req.user.lists);
     var lstidx = -1;
@@ -211,6 +215,9 @@ exports.updateTask = function (req, res, next) {
     if (!req.body.listid || !req.body.taskid) {
         return res.status(422).send({ error: 'No listid or taskid given.' });
     } else {
+        if (req.user.lists === undefined || req.user.lists.length == 0) {
+            return res.status(422).send({ error: 'No lists.'});
+        }
         req.user.lists = JSON.parse(req.user.lists);
         for(var i = 0; i < req.user.lists.length; i++) {
             if(req.user.lists[i]._id == req.body.listid) {        
@@ -259,6 +266,9 @@ exports.deleteTask = function (req, res, next) {
   if (!req.body.listid || !req.body.taskid) {
         return res.status(422).send({ error: 'No listid or taskid given.' });
     } else {
+        if (req.user.lists === undefined || req.user.lists.length == 0) {
+            return res.status(422).send({ error: 'No lists.'});
+        }
         req.user.lists = JSON.parse(req.user.lists);
         var lstidx = -1;
         for(var i = 0; i < req.user.lists.length; i++) {
