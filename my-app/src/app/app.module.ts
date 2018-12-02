@@ -5,7 +5,7 @@ import { SecurityModule } from './security/security.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
-import { SecureComponent } from './views/secure/secure.component';
+import { SecureComponent } from './views/my-lists/secure.component';
 
 @NgModule({
   declarations: [

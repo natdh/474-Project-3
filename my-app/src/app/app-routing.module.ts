@@ -1,4 +1,4 @@
-import { SecureComponent } from './views/secure/secure.component';
+import { SecureComponent } from './views/my-lists/secure.component';
 import { HomeComponent } from './views/home/home.component';
 import { RegisterComponent } from './security/security.module';
 import { NgModule } from '@angular/core';
