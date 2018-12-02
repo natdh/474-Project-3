@@ -49,13 +49,9 @@ exports.createList = function (req, res, next) {
 
 exports.updateList = function(req,res,next){
     const desc = req.body.desc;
-    const name = req.body.name; //required
+    const name = req.body.name;
     const paren = req.body.paren;
     const tasks = req.body.tasks;
-
-    if (!name) {
-        return res.status(422).send({ error: 'No name for list given.' });
-    }
     
     var lstidx = -1;
     if (!req.body.listid) {
