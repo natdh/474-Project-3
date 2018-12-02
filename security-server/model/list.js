@@ -11,10 +11,6 @@ const ListSchema = new Schema({
     type: String,
     required: true
   },
-  paren: { 
-    type: String,
-    required: false
-  },
   tasks: {
     type: Array,
     required: true

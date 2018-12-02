@@ -23,7 +23,6 @@ exports.getList = function(req,res,next){
 exports.createList = function (req, res, next) {
     const desc = req.body.desc;
     const name = req.body.name;//required
-    const paren = req.body.paren;
     const tasks = req.body.tasks;
     
     if (!name) {
@@ -33,7 +32,6 @@ exports.createList = function (req, res, next) {
     let list = new List({
         desc: desc,
         name: name,
-        paren: paren,
         tasks: tasks
     });
     
@@ -55,33 +53,33 @@ exports.createList = function (req, res, next) {
 exports.updateList = function(req,res,next){
     const desc = req.body.desc;
     const name = req.body.name;
-    const paren = req.body.paren;
     const tasks = req.body.tasks;
     
-    var lstidx = -1;
     if (!req.body.listid) {
         return res.status(422).send({ error: 'No listid given.' });
-    } else {
-        if (req.user.lists === undefined || req.user.lists.length == 0) {
-            return res.status(422).send({ error: 'No lists.'});
+    } 
+    
+    if (req.user.lists === undefined || req.user.lists.length == 0) {
+        return res.status(422).send({ error: 'No lists.'});
+    }
+    req.user.lists = JSON.parse(req.user.lists);
+    var lstidx = -1;
+    for(var i = 0; i < req.user.lists.length; i++) {
+        console.log("lstidx " + i + " " + req.user.lists[i]._id);
+        if(req.user.lists[i]._id == req.body.listid) {      
+            lstidx = i;
+            console.log("lstidx! " + i);
+            break;
         }
-        req.user.lists = JSON.parse(req.user.lists);
-        for(var i = 0; i < req.user.lists.length; i++) {
-            if(req.user.lists[i]._id == req.body.listid) {        
-                lstidx = i;
-                break;
-            }
-        }
-        if (lstidx == -1) {
-            return res.status(422).send({ error: 'No list of that id.'});
-        }
+    }
+    if (lstidx == -1) {
+        return res.status(422).send({ error: 'No list of that id.'});
     }
     
     let list = new List({
         _id: req.user.lists[lstidx]._id, //maintains old id
-        desc: desc != undefined   ? desc : req.user.lists[lstidx].desc,
-        name: name != undefined   ? name : req.user.lists[lstidx].name,
-        paren: paren != undefined ? paren : req.user.lists[lstidx].paren,
+        desc: desc   != undefined ? desc : req.user.lists[lstidx].desc,
+        name: name   != undefined ? name : req.user.lists[lstidx].name,
         tasks: tasks != undefined ? tasks : req.user.lists[lstidx].tasks
     });
     
