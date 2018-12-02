@@ -7,18 +7,18 @@
 <nav class="navbar-wrapper navbar-default navbar-static-top" role="navigation">
   <div class="container">    
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-          <li routerLinkActive='active'>
+        <div class="nav navbar-nav">
+          <div routerLinkActive='active'>
             <a routerLink="home">Home</a>
-          </li>
-          <li routerLinkActive='active'>
+          </div>
+          <div routerLinkActive='active'>
             <a routerLink="secure">Secure</a>
-          </li>
-          <li routerLinkActive='active'>
+          </div>
+          <div routerLinkActive='active'>
             <a routerLink="register">Register</a>
-          </li>
-          <li *loggedIn="true"><a href="javascript:void(0)" (click)='logout()'>Logout</a></li>
-        </ul>
+          </div>
+          <div *loggedIn="true"><a href="javascript:void(0)" (click)='logout()'>Logout</a></div>
+        </div>
     </div>
   </div>
 </nav>

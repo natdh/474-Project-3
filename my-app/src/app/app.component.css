@@ -1,0 +1,12 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+}
+.nav > div {
+    text-align: center;
+    width: 70px;
+    margin: 10px;
+    /*height: 40px;
+    background-color: #ff1a75;
+    border-radius: 4px;*/
+}
