@@ -1,4 +1,5 @@
-## Register
+Register
+--------------------------------------------------------------------------------
 ### Path
 /api/auth/register
 ### Method
@@ -19,7 +20,8 @@ Content-Type: application/json
 ### Response
 user, token. Must log in now.
 
-## Login
+Login
+--------------------------------------------------------------------------------
 ### Path
 /api/auth/login
 ### Method
@@ -34,7 +36,8 @@ Content-Type: application/json
 ### Response
 user, token. Must put *this* token in the headers now.
 
-## Check authorization
+Check authorization
+--------------------------------------------------------------------------------
 ### Path
 /api/auth/authorize
 ### Method
@@ -44,7 +47,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Response
 "validated": true
 
-## Info - gets you your full user json
+Info - gets you your full user json
+--------------------------------------------------------------------------------
 ### Path
 /api/home/info
 ### Method
@@ -54,7 +58,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Response
 user: {...}
 
-## Create List
+Create List
+--------------------------------------------------------------------------------
 ### Path
 /api/home/list
 ### Method
@@ -73,7 +78,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Response
 list: {_id: ... name: .. }
 
-## Read List
+Read List
+--------------------------------------------------------------------------------
 ### Path
 /api/home/list
 ### Method
@@ -88,7 +94,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Response
 list: {_id: ... name: .. }
 
-## Update List
+Update List
+--------------------------------------------------------------------------------
 ### Path
 /api/home/list
 ### Method
@@ -109,7 +116,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Response
 list: {_id: ... name: .. }
 
-## Delete List
+Delete List
+--------------------------------------------------------------------------------
 ### Path
 /api/home/list
 ### Method
@@ -124,7 +132,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Response
 deleted: true, user: {...}
 
-## Create Task
+Create Task
+--------------------------------------------------------------------------------
 ### Path
 /api/home/task
 ### Method
@@ -133,9 +142,19 @@ POST
 Content-Type: application/json
 
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
-### Body
+### Body 
+#### (required: name, listid)
+"name" : "a subtask",
 
-## Read Task
+"details" : "some details",
+
+"listid" : "5c043a200598fcb710478e75"
+
+### Response
+deleted: true, user: {...}
+
+Read Task
+--------------------------------------------------------------------------------
 ### Path
 /api/home/task
 ### Method
@@ -145,8 +164,16 @@ Content-Type: application/json
 
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
+#### (required: listid, taskid)
+"listid" : "5c043a200598fcb710478e75",
 
-## Update Task
+"taskid" : "5c043b3828efe4b7469af2bb"
+
+### Response
+task: {...}
+
+Update Task
+--------------------------------------------------------------------------------
 ### Path
 /api/home/task
 ### Method
@@ -158,7 +185,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 ### Body
 
 
-## Delete Task
+Delete Task
+--------------------------------------------------------------------------------
 ### Path
 /api/home/task
 ### Method
