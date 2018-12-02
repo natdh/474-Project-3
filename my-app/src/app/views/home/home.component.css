@@ -1,0 +1,33 @@
+button {
+    background-color: #8e8d8e;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: larger;
+}
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+.panel-heading {
+    font-size: 25px;
+}
+.new-list {
+    padding-top: 8px;
+}
+.user-lists {
+    background-color: #9d9b9d;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: larger;
+}
+.user-lists:hover {
+    opacity: 0.8;
+}

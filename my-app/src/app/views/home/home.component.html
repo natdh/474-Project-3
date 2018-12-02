@@ -2,4 +2,12 @@
 </p>
 <div class="col-sm-12 col-sm-offset-4">
 <app-security-login *loggedIn="false" ></app-security-login>
+<div *loggedIn="true">
+        <div class="panel-heading">
+                My Lists
+              </div>
+    <button (click)="newList()" type="submit" class="btn btn-success btn-sm">
+      New List
+    </button>
+  </div>
 </div>
