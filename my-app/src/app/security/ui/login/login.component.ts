@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private _secSvc: SecurityService) { this.email = this.password = ''; }
 
   loginClick = () => {
-    this._secSvc.login(this.email, this.password, 'test-app').subscribe(
+    this._secSvc.login(this.email, this.password, 'my-app').subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );

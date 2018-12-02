@@ -6,7 +6,24 @@ form {
 .panel-heading {
     font-size: 25px;
 }
-
+input[type=text], input[type=firstName] {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: small;
+}
+input[type=text], input[type=lastName] {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: small;
+}
 input[type=text], input[type=password] {
     width: 100%;
     padding: 8px 5px;
