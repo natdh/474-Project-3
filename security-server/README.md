@@ -1,217 +1,134 @@
 ## Register
 ### Path
 /api/auth/register
-## Method
-
+### Method
 POST
-
-**Headers**
-
+### Headers
 Content-Type: application/json
-
-**Body**
-
+### Body
 "email": "email@gmail.com",
 "firstName": "John",
 "lastName": "Smith",
 "password": "0000",
 "clientid": "0000"
 
-Login
---------
-**Path**
-
+## Login
+### Path
 /api/auth/login
-
-**Method**
-
+### Method
 POST
-
-**Headers**
-
+### Headers
 Content-Type: application/json
-
-**Body**
-
+### Body
 "email": "email@gmail.com"
 "password": "0000"
 
-Check authorization
---------
-**Path**
-
+## Check authorization
+### Path
 /api/auth/authorize
-
-**Method**
-
+### Method
 GET
-
-**Headers**
-
+### Headers
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-Info - gets you your full user json
---------
-**Path**
-
+## Info - gets you your full user json
+### Path
 /api/home/info
-
-**Method**
-
+### Method
 GET
-
-**Headers**
-
+### Headers
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
-Create List
---------
-**Path**
-
+## Create List
+### Path
 /api/home/list
-
-**Method**
-
+### Method
 POST
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
-
-**Body** (required: name)
-
+### Body 
+#### (required: name)
 "name" : "scrabble", 
 "desc" : "boardgame", 
 "paren" : "paren"
 
-Read List
---------
-**Path**
-
+## Read List
+### Path
 /api/home/list
-
-**Method**
-
+### Method
 GET
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
-
-**Body** (required: listid)
-
+### Body
+#### (required: listid)
 "listid" : "5c030af7339b11aa8d34f3af"
 
-Update List
---------
-**Path**
-
+## Update List
+### Path
 /api/home/list
-
-**Method**
-
+### Method
 PUT
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
-
-**Body** (required: listid)
-
+### Body
+#### (required: listid)
 "listid" : "5c030af7339b58aa8d34fa1f",
 "name" : "scrabble blah",
 "desc" : "a boardgame", 
 "paren" : "paren"
 
-Delete List
---------
-**Path**
-
+## Delete List
+### Path
 /api/home/list
-
-**Method**
-
+### Method
 DELETE
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
-
-**Body** (required: listid)
-
+### Body
+#### (required: listid)
 "listid" : "5c030af7339b58aa8d34fa1f"
 
-Create Task
---------
-**Path**
-
+## Create Task
+### Path
 /api/home/task
-
-**Method**
-
+### Method
 POST
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
+### Body
 
-**Body**
-
-
-Read Task
---------
-**Path**
-
+## Read Task
+### Path
 /api/home/task
-
-**Method**
-
+### Method
 GET
-
-*Headers*
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
+### Body
 
-
-**Body**
-
-
-Update Task
---------
-**Path**
-
+## Update Task
+### Path
 /api/home/task
-
-**Method**
-
+### Method
 PUT
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
+### Body
 
-**Body**
 
-Delete Task
---------
-**Path**
-
+## Delete Task
+### Path
 /api/home/task
-
-**Method**
-
+### Method
 DELETE
-
-**Headers**
-
+### Headers
 Content-Type: application/json
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
-
-**Body**
+### Body
