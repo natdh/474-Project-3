@@ -5,12 +5,15 @@
 POST
 ### Headers
 Content-Type: application/json
-### Body
+### Body 
+#### (required: email, firstName, lastName, password, clientid)
 "email": "email@gmail.com",
 "firstName": "John",
 "lastName": "Smith",
 "password": "0000",
 "clientid": "0000"
+### Response
+user, token. Must log in now.
 
 ## Login
 ### Path
@@ -20,8 +23,11 @@ POST
 ### Headers
 Content-Type: application/json
 ### Body
+#### (required: email, password)
 "email": "email@gmail.com"
 "password": "0000"
+### Response
+user, token. Must put *this* token in the headers now.
 
 ## Check authorization
 ### Path
@@ -30,6 +36,8 @@ Content-Type: application/json
 GET
 ### Headers
 Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
+### Response
+"validated": true
 
 ## Info - gets you your full user json
 ### Path
