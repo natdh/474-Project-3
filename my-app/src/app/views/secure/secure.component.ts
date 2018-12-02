@@ -12,6 +12,10 @@ export class SecureComponent extends SecurityComponent implements OnInit {
     super(['User']);
   }
 
+  newList = () => {
+
+  }
+
   ngOnInit() {
   }
 

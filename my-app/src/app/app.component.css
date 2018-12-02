@@ -1,11 +1,13 @@
 .nav {
     display: flex;
     flex-direction: row;
+    margin: auto;
+    width: 35%;
 }
 .nav > div {
     text-align: center;
-    width: 70px;
-    margin: 10px;
+    width: 50%;
+    margin: auto;
     /*height: 40px;
     background-color: #ff1a75;
     border-radius: 4px;*/
