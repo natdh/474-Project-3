@@ -7,13 +7,14 @@ import { SecurityComponent} from '../../security/classes/security.component';
   styleUrls: ['./secure.component.css']
 })
 export class SecureComponent extends SecurityComponent implements OnInit {
+  private isCreateListVisible = false;
 
   constructor() {
     super(['User']);
   }
 
   newList = () => {
-
+    
   }
 
   ngOnInit() {
