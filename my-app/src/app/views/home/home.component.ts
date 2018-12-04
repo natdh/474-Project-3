@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { SecurityService } from '../../security/services/security.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 loggedIn = false;
-constructor() {
-}
+  private name: string;
+  private desc: string;
+  constructor(private _secSvc: SecurityService) { this.name = this.desc = ''; }
 
   ngOnInit() {
   }
