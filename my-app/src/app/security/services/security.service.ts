@@ -30,6 +30,14 @@ export class SecurityService {
       });
   }
 
+  public createList(client: string, listName: string, listDesc: string, tasksList: Array<string>){
+    //this.headers.append("Authorization",/*token*/);
+    return this._http.post('http://localhost:3000/api/home/list',
+    {name: listName, desc: listDesc, clientid: client, tasks: tasksList},
+    {headers:this.headers})
+  }
+
+
   public logout() {
     this._userSvc.removeUser();
   }
