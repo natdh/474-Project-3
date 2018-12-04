@@ -13,7 +13,9 @@ exports.getList = function(req,res,next){
         for(var i = 0; i < req.user.lists.length; i++) {
             if(req.user.lists[i]._id == req.body.listid) {        
                 var lst = List(req.user.lists[i]);
-                return res.json({list: lst.toJson()});
+                return res.json({
+                    list: lst.toJson()
+                });
             }
         }
         return res.status(422).send({ error: 'No list of that id.'});
@@ -44,8 +46,10 @@ exports.createList = function (req, res, next) {
         if (err) { return next(err); } 
         req.user.lists = JSON.parse(req.user.lists);
         let listInfo = list.toJson();
+        let userInfo = req.user.toJson();
         res.status(201).json({
-            list: listInfo
+            list: listInfo, 
+            user: userInfo
         });
     });
 }
@@ -89,9 +93,11 @@ exports.updateList = function(req,res,next){
     req.user.save(function (err, user) {
         if (err) { return next(err); }
         req.user.lists = JSON.parse(req.user.lists);
-        let listInfo = List(req.user.lists[lstidx]).toJson();
+        let listInfo = list.toJson();
+        let userInfo = req.user.toJson();
         return res.status(201).json({
-            list: listInfo
+            list: listInfo, 
+            user: userInfo
         });
     });
 }
@@ -210,13 +216,15 @@ exports.createTask = function(req,res,next){
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
+        req.user.lists = JSON.parse(req.user.lists);
+        let userInfo = req.user.toJson();
         res.status(201).json({
-            task : task
+            task : task, 
+            user: userInfo
         });
     });
 }
 
-//todo
 exports.updateTask = function (req, res, next) {
     const details = req.body.details;
     const name = req.body.name;
@@ -269,13 +277,15 @@ exports.updateTask = function (req, res, next) {
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
+        req.user.lists = JSON.parse(req.user.lists);
+        let userInfo = req.user.toJson();
         res.status(201).json({
-            task: task
+            task: task, 
+            user: userInfo
         });
     });
 }
 
-//todo
 exports.deleteTask = function (req, res, next) {
   if (!req.body.listid || !req.body.taskid) {
         return res.status(422).send({ error: 'No listid or taskid given.' });

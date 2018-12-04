@@ -76,11 +76,12 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 #### (required: name)
 "name" : "word search", 
 
-"desc" : "game", 
+"desc" : "game"
 
-"paren" : "paren"
 ### Response
-list: {_id: ... name: .. }
+list: {_id: ... name: .. },
+
+user: {...}
 
 Read List
 --------------------------------------------------------------------------------
@@ -114,11 +115,11 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 "name" : "scrabble blah",
 
-"desc" : "a boardgame", 
-
-"paren" : "paren"
+"desc" : "a boardgame"
 ### Response
-list: {_id: ... name: .. }
+list: {_id: ... name: .. }, 
+
+user: {...}
 
 Delete List
 --------------------------------------------------------------------------------
@@ -157,7 +158,9 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 "listid" : "5c043a200598fcb710478e75"
 
 ### Response
-task: {...}
+task: {...}, 
+
+user: {...}
 
 Read Task
 --------------------------------------------------------------------------------
@@ -198,7 +201,9 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 "name" : "sudoku"
 ### Response
-task: {...}
+task: {...}, 
+
+user: {...}
 
 Delete Task
 --------------------------------------------------------------------------------
