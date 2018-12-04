@@ -9,7 +9,8 @@ import { ListService } from '../../lists/list.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-loggedIn = false;
+  loggedIn = false;
+  private isCreateListVisible = false;
   private name: string;
   private desc: string;
   lists: ListService[];
