@@ -1,5 +1,6 @@
 <div class="col-sm-12 col-sm-offset-4">
 <app-security-login *loggedIn="false" ></app-security-login>
+<<<<<<< HEAD
   <div *loggedIn="true">
       <div class="panel-heading">
           My Lists
@@ -29,5 +30,28 @@
             </div>
           </div>
         </form>
+=======
+>>>>>>> cfae94d31029be237c4f2ee7e7fe51b0e91187c8
   </div>
+  <button (click)="createList()" type="submit" class="btn btn-success btn-sm">
+    New List
+  </button>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="name" class="col-sm-3 control-label">
+        Name of List</label>
+      <div class="col-sm-9">
+        <input [(ngModel)]="name" type="name" class="form-control" name="name" id="name" placeholder="name" required>
+      </div>
+    </div>
+    <div class="form-group last">
+      <label for="desc" class="col-sm-3 control-label">
+        Description</label>
+      <div class="col-sm-9">
+        <input [(ngModel)]="desc" type="desc" class="form-control" name="desc" id="desc" placeholder="desc">
+      </div>
+    </div>
+  </form>
+  </ul>
+</div>
 </div>
