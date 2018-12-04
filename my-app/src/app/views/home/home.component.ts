@@ -8,7 +8,8 @@ import { SecurityService } from '../../security/services/security.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-loggedIn = false;
+  loggedIn = false;
+  private isCreateListVisible = false;
   private name: string;
   private desc: string;
   constructor(private _secSvc: SecurityService) { this.name = this.desc = ''; }
