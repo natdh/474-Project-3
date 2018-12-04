@@ -76,9 +76,8 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 #### (required: name)
 "name" : "word search", 
 
-"desc" : "game", 
+"desc" : "game"
 
-"paren" : "paren"
 ### Response
 list: {_id: ... name: .. },
 
@@ -116,9 +115,7 @@ Authorization: Bearer 1lIiwibmFtZSI6InNjcmFiYmxlISEhIiwidGFza3MiOltdfV0shdCI6...
 
 "name" : "scrabble blah",
 
-"desc" : "a boardgame", 
-
-"paren" : "paren"
+"desc" : "a boardgame"
 ### Response
 list: {_id: ... name: .. }, 
 
