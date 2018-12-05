@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenKey } from '@angular/core/src/view';
+import { ListService } from 'src/app/lists/list.service';
 
 @Injectable()
 export class SecurityService {
@@ -21,6 +22,7 @@ export class SecurityService {
         console.log(user.json());
         this.token = user.json()['token'];
         console.log(this.token);
+       // user.json()['user'].lists.forEach(function(item){item.forEach(function(inner){console.log(inner);})});
         return user.json();
       });
   }
@@ -38,10 +40,12 @@ export class SecurityService {
   }
 
   public createList(client: string, listName: string, listDesc: string, tasksList: Array<string>){
-    this.headers.append("Authorization",this.token);
+    var headers = new Headers();
+    headers.append('Authorization', this.token);
+    var options = {headers:headers};
     return this._http.post('http://localhost:3000/api/home/list',
-    {name: listName, desc: listDesc, clientid: client, tasks: tasksList},
-    {headers:this.headers})
+      {name: listName, desc: listDesc, clientid: client, tasks: tasksList},
+      options);
   }
 
 
