@@ -14,7 +14,12 @@ export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
   private isListDataVisible = false;
+<<<<<<< Updated upstream
   private lists: Array<Array<string>>;
+=======
+  private taskDetails: string; 
+  private taskName: string; 
+>>>>>>> Stashed changes
   private name: string;
   private _id: string;
   private task: string;
@@ -61,7 +66,8 @@ export class HomeComponent implements OnInit {
   }
 
   clear(){
-    this.task = ''; // null should work too, but as the type ov the value is string I like to use ''
+    this.taskDetails = '';
+    this.taskName = ''; // null should work too, but as the type ov the value is string I like to use ''
   }
 
   ngOnInit() {
