@@ -31,7 +31,7 @@
         </form>
       <div class="user-lists">
         <div class="listNameDesc" (click)="this.isListDataVisible = !isListDataVisible">
-            {{name}}            
+            {{name}}
           <div class="listDesc">
           {{desc}}
           </div>
@@ -42,7 +42,7 @@
           </div>
       </div>
       <div class="addTaskName" *ngIf="this.isListDataVisible">
-        <form class="form-horizontal" role="form" id="form">  
+        <form class="form-horizontal" role="form" id="form">
           <div class="taskName">
             <div class="form-group">
               <div class="col-sm-9">
@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-        </form>            
+        </form>
       </div>
       <div class="addTaskSubmit" *ngIf="this.isListDataVisible">
         <button (click)="newTask(); clear()" type="submit">
@@ -65,5 +65,10 @@
         </button>
       </div>
     </div>
-  </div>      
+  </div>
+  <div>
+    <button (click)="getUserLists()">get user lists</button>
+    <button (click)="logUser()">log user</button>
+    <button (click)="logLists()">log lists</button>
+  </div>
 </div>
