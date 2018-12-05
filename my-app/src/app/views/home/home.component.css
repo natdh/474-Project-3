@@ -8,6 +8,24 @@ button {
     width: 100%;
     font-size: larger;
 }
+input[type=text], input[type=name] {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: small;
+}
+input[type=text], input[type=desc] {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: small;
+}
 /* Add a hover effect for buttons */
 button:hover {
     opacity: 0.8;
