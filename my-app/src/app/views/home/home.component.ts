@@ -14,12 +14,9 @@ export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
   private isListDataVisible = false;
-<<<<<<< Updated upstream
   private lists: Array<Array<string>>;
-=======
   private taskDetails: string; 
   private taskName: string; 
->>>>>>> Stashed changes
   private name: string;
   private _id: string;
   private task: string;
