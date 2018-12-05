@@ -2,11 +2,10 @@ button {
     background-color: #8e8d8e;
     color: white;
     padding: 7px 20px;
-    margin: 8px 0;
     border: none;
+    font-size: medium;
     cursor: pointer;
     width: 100%;
-    font-size: x-large;
     font-family: "Playfair Display"; 
     font-style: normal; 
     font-variant: normal; 
@@ -50,9 +49,13 @@ input[type=text], input[type=desc] {
 .addTaskSubmit {
     width: 20%;
     font-size: medium;
-    padding: 4px 4px;
     float: right;
-    margin-right: 12px;
+    margin-right: 18px;
+    border: solid 1px;
+    margin-top: 20px;
+}
+.btn {
+    font-size: x-large;    
 }
 /* Add a hover effect for buttons */
 button:hover {
@@ -64,6 +67,7 @@ button:hover {
     font-family: "Playfair Display"; 
     font-style: normal; 
     font-variant: normal;  
+    padding-bottom: 6px;
 }
 .new-list {
     padding-top: 8px;
@@ -111,5 +115,6 @@ button:hover {
     font-style: normal; 
     font-variant: normal; 
     font-weight: bold;
-    color: #1a7779;        
+    color: #1a7779;   
+    padding-top: 6px;      
 }

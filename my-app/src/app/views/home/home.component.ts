@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SecurityService } from '../../security/services/security.service';
 import { ListService } from '../../lists/list.service';
+import { Input } from '@angular/core/src/metadata/directives';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
   private isCreateListVisible = false;
   private isListDataVisible = false;
   private name: string;
+  private task: string;
   private details: string;
   private dueDate: string;
   private listid: string;
@@ -32,6 +34,10 @@ export class HomeComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
+  }
+
+  clear(){
+    this.task = ''; // null should work too, but as the type ov the value is string I like to use ''
   }
 
   ngOnInit() {

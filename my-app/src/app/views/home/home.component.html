@@ -51,7 +51,7 @@
           </form>            
         </div>
         <div class="addTaskSubmit" *ngIf="this.isListDataVisible">
-          <button (click)="newTask()" type="submit">
+          <button (click)="newTask(); clear()" type="submit">
             Add
           </button>
         </div>
