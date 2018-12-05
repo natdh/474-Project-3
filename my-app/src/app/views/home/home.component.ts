@@ -62,7 +62,12 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  clear(){
+  clearList() {
+    this.desc = '';
+    this.name = '';
+  }
+
+  clearTask() {
     this.taskDetails = '';
     this.taskName = ''; // null should work too, but as the type ov the value is string I like to use ''
   }
