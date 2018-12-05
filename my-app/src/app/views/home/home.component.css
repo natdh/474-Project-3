@@ -38,21 +38,42 @@ input[type=text], input[type=desc] {
     font-style: normal; 
     font-variant: normal; 
 }
+input[type=text], input[type=details] {
+    width: 100%;
+    padding: 8px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+}
 .addTask {
-    width: 75%;
+    width: 100%;
     padding: 8px 5px;
     padding-bottom: 0px;
     margin: 0px -8px;
     display: inline-block;
     box-sizing: border-box;
 }
-.addTaskSubmit {
-    width: 20%;
-    font-size: medium;
+.taskName {
+    width: 35%;
+    float: left;
+    padding-right: 7px;
+}
+.taskDetails {
+    width: 61%;
     float: right;
-    margin-right: 18px;
+}
+.addTaskSubmit {
+    width: 100%;
+    font-size: medium;
     border: solid 1px;
-    margin-top: 20px;
+    margin-top: 58px;
+    margin-bottom: 8px;
+    margin-right: 18px;
 }
 .btn {
     font-size: x-large;    
@@ -77,6 +98,7 @@ button:hover {
     color: white;
     padding-top: 10px;
     padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 2px;
     margin: 6px 0;
     border: none;
@@ -107,8 +129,9 @@ button:hover {
 }
 .taskView {
     border: solid 1px;
-    padding: 1px 5px;
-    margin-right: 18px;
+    padding: 7px 0px;
+    width: 100%;
+    padding-right: 0px;
 }
 .form-group {
     font-family: "Playfair Display"; 
