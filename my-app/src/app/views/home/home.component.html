@@ -31,9 +31,9 @@
         </form>
       <div class="user-lists">
         <div class="listNameDesc" (click)="this.isListDataVisible = !isListDataVisible">
-          {{list.name}}            
+          {{name}}            
           <div class="listDesc">
-          {{list.desc}}
+          {{desc}}
           </div>
         </div>
       <div class="tasks" *ngIf="this.isListDataVisible">

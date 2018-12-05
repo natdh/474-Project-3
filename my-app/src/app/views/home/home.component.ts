@@ -50,8 +50,6 @@ export class HomeComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
-    this.desc = '';
-    this.name = '';
   }
 
   newTask = () => {
@@ -61,6 +59,7 @@ export class HomeComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
+    console.log()
     this.taskDetails = '';
     this.taskName = '';
   }
