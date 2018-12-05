@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
   private isListDataVisible = false;
+  private lists: Array<Array<string>>;
   private name: string;
+  private _id: string;
   private task: string;
   private details: string;
   private dueDate: string;
@@ -51,7 +53,8 @@ export class HomeComponent implements OnInit {
   }
 
   newTask = () => {
-    this._secSvc.createTask('my-app', this.name, this.details, this.listid, this.dueDate).subscribe(
+    console.log(this._id);
+    this._secSvc.createTask('my-app', this.name, this.details, this._id, this.dueDate).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );
