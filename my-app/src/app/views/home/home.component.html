@@ -34,11 +34,13 @@
         <div class="listData">
           Description
         </div>
-        <div class="taskView" *ngIf="this.isListDataVisible">
-          task
-        </div>
-        <div class="taskView" *ngIf="this.isListDataVisible">
-          task
+        <div class="tasks" *ngIf="this.isListDataVisible">
+          <div class="taskView" *ngIf="this.isListDataVisible">
+            task
+          </div>
+          <div class="taskView" *ngIf="this.isListDataVisible">
+            task
+          </div>
         </div>
       </div>
       </div>      

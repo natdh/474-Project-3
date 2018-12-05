@@ -13,12 +13,21 @@ export class HomeComponent implements OnInit {
   private isCreateListVisible = false;
   private isListDataVisible = false;
   private name: string;
+  private details: string;
+  private dueDate: Date;
   private desc: string;
   private tasks: Array<string>;
   constructor(private _secSvc: SecurityService) { this.name = this.desc = ''; }
 
   newList = () => {
     this._secSvc.createList('my-app', this.name, this.desc, this.tasks).subscribe(
+      data => console.log('Data:' + data),
+      err => console.log(err)
+    );
+  }
+
+  newTask = () => {
+    this._secSvc.createTask('my-app', this.name, this.details, this.dueDate).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );

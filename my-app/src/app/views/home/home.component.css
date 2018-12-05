@@ -53,8 +53,10 @@ button:hover {
 .user-lists {
     background-color: #9d9b9d;
     color: white;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    margin: 6px 0;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -78,9 +80,13 @@ button:hover {
     font-weight: 100;
     padding-bottom: 8px;
 }
+.tasks {
+    padding-bottom: 9px;
+}
 .taskView {
     border: solid 1px;
     padding: 1px 5px;
+    margin-right: 18px;
 }
 .form-group {
     font-family: "Playfair Display"; 
