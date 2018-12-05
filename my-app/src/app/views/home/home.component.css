@@ -11,6 +11,10 @@ button {
     font-style: normal; 
     font-variant: normal; 
 }
+.col-sm-12 {
+    border: 2px black;
+    background:white;
+}
 input[type=text], input[type=name] {
     width: 100%;
     padding: 8px 5px;
