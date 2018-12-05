@@ -39,6 +39,21 @@ input[type=text], input[type=desc] {
     font-style: normal; 
     font-variant: normal; 
 }
+.addTask {
+    width: 75%;
+    padding: 8px 5px;
+    padding-bottom: 0px;
+    margin: 0px -8px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.addTaskSubmit {
+    width: 20%;
+    font-size: medium;
+    padding: 4px 4px;
+    float: right;
+    margin-right: 12px;
+}
 /* Add a hover effect for buttons */
 button:hover {
     opacity: 0.8;
@@ -75,7 +90,7 @@ button:hover {
 .user-lists:hover {
     opacity: 0.8;
 }
-.listData {
+.listDesc {
     font-size: medium;
     font-family: "Playfair Display"; 
     font-style: normal; 

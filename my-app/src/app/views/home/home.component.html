@@ -29,15 +29,31 @@
             </div>
           </div>
         </form>
-      <div class="user-lists" (click)="this.isListDataVisible = !isListDataVisible">
-        {{name}}
-        <div class="listData">
-        {{desc}}
+      <div class="user-lists">
+        <div class="listNameDesc" (click)="this.isListDataVisible = !isListDataVisible">
+            {{name}}            
+          <div class="listDesc">
+          {{desc}}
+          </div>
         </div>
-        <div class="tasks" *ngIf="this.isListDataVisible">
+      <div class="tasks" *ngIf="this.isListDataVisible">
           <div class="taskView" *ngIf="this.isListDataVisible">
             {{tasks}}
           </div>
+        </div>
+        <div class="addTask" *ngIf="this.isListDataVisible">
+          <form class="form-horizontal" role="form" id="form">  
+              <div class="form-group">
+                  <div class="col-sm-9">
+                    <input [(ngModel)]="task" type="name" class="form-control" name="taskName" id="taskName" placeholder="Enter new task here" required>
+                  </div>
+                </div>
+          </form>            
+        </div>
+        <div class="addTaskSubmit" *ngIf="this.isListDataVisible">
+          <button (click)="newTask()" type="submit">
+            Add
+          </button>
         </div>
       </div>
       </div>      
