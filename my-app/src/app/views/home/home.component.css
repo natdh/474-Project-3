@@ -1,12 +1,12 @@
 button {
     background-color: #8e8d8e;
     color: white;
-    padding: 12px 20px;
+    padding: 7px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
-    font-size: larger;
+    font-size: x-large;
     font-family: "Playfair Display"; 
     font-style: normal; 
     font-variant: normal; 
@@ -62,9 +62,25 @@ button:hover {
     font-family: "Playfair Display"; 
     font-style: normal; 
     font-variant: normal; 
+    font-weight: bold;
+    align-items: flex-start;
+    box-sizing: border-box;
+    display: inline-block;    
 }
 .user-lists:hover {
     opacity: 0.8;
+}
+.listData {
+    font-size: medium;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 100;
+    padding-bottom: 3px;
+}
+.taskView {
+    border: solid 1px;
+    padding: 1px 5px;
 }
 .form-group {
     font-family: "Playfair Display"; 

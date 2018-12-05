@@ -29,5 +29,17 @@
             </div>
           </div>
         </form>
+      <div class="user-lists" (click)="this.isListDataVisible = !isListDataVisible">
+        My First List
+        <div class="listData">
+          Description
+        </div>
+        <div class="taskView" *ngIf="this.isListDataVisible">
+          task
+        </div>
+        <div class="taskView" *ngIf="this.isListDataVisible">
+          task
+        </div>
+      </div>
       </div>      
 </div>

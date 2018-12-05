@@ -11,6 +11,7 @@ import { ListService } from '../../lists/list.service';
 export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
+  private isListDataVisible = false;
   private name: string;
   private desc: string;
   private tasks: Array<string>;
