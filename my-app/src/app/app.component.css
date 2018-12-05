@@ -3,6 +3,15 @@
     flex-direction: row;
     margin: auto;
     width: 35%;
+    font-family: "Playfair Display"; 
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    color: #1a7779 !important;
+}
+a{
+    color: #1a7779;
+    text-decoration: none;
 }
 .nav > div {
     text-align: center;
@@ -11,4 +20,12 @@
     /*height: 40px;
     background-color: #ff1a75;
     border-radius: 4px;*/
+}
+h1 {
+    font-family: "Playfair Display"; 
+    font-size: 24px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 800; 
+    line-height: 26px; 
 }

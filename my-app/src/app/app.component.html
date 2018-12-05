@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Playfair+Display" />
 <div style="text-align:center">
-  <h1>
+  <h1 class="header">
     To-Do List Manager
   </h1>
 </div>
@@ -10,9 +11,6 @@
         <div class="nav navbar-nav">
           <div routerLinkActive='active'>
             <a routerLink="home">Home</a>
-          </div>
-          <div *loggedIn="true">
-            <a routerLink="secure">My Lists</a>
           </div>
           <div *loggedIn="true"><a href="javascript:void(0)" (click)='logout()'>Logout</a></div>
         </div>

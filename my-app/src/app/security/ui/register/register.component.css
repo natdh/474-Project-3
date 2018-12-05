@@ -4,8 +4,20 @@ form {
     padding-bottom: 25px;
 }
 
+.form-group {
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold;
+    color: #1a7779;
+}
+
 .panel-heading {
     font-size: 25px;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold;
 }
 input[type=text], input[type=firstName] {
     width: 100%;
@@ -15,6 +27,9 @@ input[type=text], input[type=firstName] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 input[type=text], input[type=lastName] {
     width: 100%;
@@ -24,6 +39,9 @@ input[type=text], input[type=lastName] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 input[type=text], input[type=password] {
     width: 100%;
@@ -33,6 +51,9 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 
 input[type=text], input[type=email] {
@@ -43,6 +64,9 @@ input[type=text], input[type=email] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 
 /* Set a style for all buttons */
@@ -55,6 +79,9 @@ button {
     cursor: pointer;
     width: 100%;
     font-size: larger;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 
 /* Add a hover effect for buttons */

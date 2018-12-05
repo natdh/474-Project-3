@@ -1,12 +1,19 @@
 button {
     background-color: #8e8d8e;
     color: white;
-    padding: 12px 20px;
+    padding: 7px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
-    font-size: larger;
+    font-size: x-large;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+}
+.col-sm-12 {
+    border: 2px black;
+    background:white;
 }
 input[type=text], input[type=name] {
     width: 100%;
@@ -16,6 +23,9 @@ input[type=text], input[type=name] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 input[type=text], input[type=desc] {
     width: 100%;
@@ -25,6 +35,24 @@ input[type=text], input[type=desc] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+}
+.addTask {
+    width: 75%;
+    padding: 8px 5px;
+    padding-bottom: 0px;
+    margin: 0px -8px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.addTaskSubmit {
+    width: 20%;
+    font-size: medium;
+    padding: 4px 4px;
+    float: right;
+    margin-right: 12px;
 }
 /* Add a hover effect for buttons */
 button:hover {
@@ -32,6 +60,10 @@ button:hover {
 }
 .panel-heading {
     font-size: 25px;
+    font-weight: bold;   
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal;  
 }
 .new-list {
     padding-top: 8px;
@@ -39,13 +71,45 @@ button:hover {
 .user-lists {
     background-color: #9d9b9d;
     color: white;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    margin: 6px 0;
     border: none;
     cursor: pointer;
     width: 100%;
     font-size: larger;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold;
+    align-items: flex-start;
+    box-sizing: border-box;
+    display: inline-block;    
 }
 .user-lists:hover {
     opacity: 0.8;
+}
+.listDesc {
+    font-size: medium;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal;
+    font-weight: 100;
+    padding-bottom: 8px;
+}
+.tasks {
+    padding-bottom: 9px;
+}
+.taskView {
+    border: solid 1px;
+    padding: 1px 5px;
+    margin-right: 18px;
+}
+.form-group {
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold;
+    color: #1a7779;        
 }
