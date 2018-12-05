@@ -1,3 +1,39 @@
+Structure of User 
+================================================================================
+{
+    "user": {
+        "_id": "123",
+        "firstName": "S",
+        "lastName": "S",
+        "email": "something",
+        "lists": [
+            {
+                "_id": "456",
+                "desc": "noodles",
+                "name": "salmon",
+                "tasks": [
+                    {
+                        "details": "blah",
+                        "name": "a subtask",
+                        "_id": "789"
+                    },
+                    {
+                        "details": "blah",
+                        "name": "a subtask",
+                        "_id": "1011"
+                    }
+                ]
+            },
+            {
+                "_id": "1213",
+                "desc": "pasta",
+                "name": "salmon",
+                "tasks": []
+            }
+        ]
+    }
+}
+
 Basic
 ================================================================================
 Register
