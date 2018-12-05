@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   private isListDataVisible = false;
   private name: string;
   private details: string;
-  private dueDate: Date;
+  private dueDate: string;
+  private listid: string;
   private desc: string;
   private tasks: Array<string>;
   constructor(private _secSvc: SecurityService) { this.name = this.desc = ''; }
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   newTask = () => {
-    this._secSvc.createTask('my-app', this.name, this.details, this.dueDate).subscribe(
+    this._secSvc.createTask('my-app', this.name, this.details, this.listid, this.dueDate).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );
