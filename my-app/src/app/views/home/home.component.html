@@ -30,16 +30,13 @@
           </div>
         </form>
       <div class="user-lists" (click)="this.isListDataVisible = !isListDataVisible">
-        My First List
+        {{name}}
         <div class="listData">
-          Description
+        {{desc}}
         </div>
         <div class="tasks" *ngIf="this.isListDataVisible">
           <div class="taskView" *ngIf="this.isListDataVisible">
-            task
-          </div>
-          <div class="taskView" *ngIf="this.isListDataVisible">
-            task
+            {{tasks}}
           </div>
         </div>
       </div>
