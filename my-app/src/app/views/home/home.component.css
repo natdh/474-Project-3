@@ -7,6 +7,9 @@ button {
     cursor: pointer;
     width: 100%;
     font-size: larger;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 input[type=text], input[type=name] {
     width: 100%;
@@ -16,6 +19,9 @@ input[type=text], input[type=name] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 input[type=text], input[type=desc] {
     width: 100%;
@@ -25,6 +31,9 @@ input[type=text], input[type=desc] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: small;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 /* Add a hover effect for buttons */
 button:hover {
@@ -45,6 +54,9 @@ button:hover {
     cursor: pointer;
     width: 100%;
     font-size: larger;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
 }
 .user-lists:hover {
     opacity: 0.8;
