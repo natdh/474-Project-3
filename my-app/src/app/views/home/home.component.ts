@@ -20,18 +20,21 @@ export class HomeComponent implements OnInit {
   private listid: string;
   private desc: string;
   private tasks: Array<string>;
-  private lists: [];
+  private lists: Array<any>;
   constructor(private _secSvc: SecurityService, private _userSvc: UserService, private _localStorage: LocalStorageService) { this.name = this.desc = ''; }
 
   getUserLists = () => {
-    //this.lists = this._localStorage.get('lists');
-    //console.log(this.lists);
-    //this._userSvc.getUser().json()['user'].lists.forEach(function(item){item.forEach(function(inner){console.log(inner);})});
-    console.log(this._userSvc.getUser()['user']['lists']);
+    let i = 0;
+    this.lists = new Array();
+    JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
+      this.lists[i]=element['_id'];
+      i=i+1;
+    });
+    console.log(this.lists);
   }
 
   logLists() {
-    console.log(this._userSvc.getUser()[1]);
+    console.log(JSON.parse(this._userSvc.getUser()['user']['lists']));//5c0822eac4df9937ac2a08aa
   }
 
   logUser() {
