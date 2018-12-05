@@ -16,6 +16,7 @@ export class SecurityService {
       { headers: this.headers })
       .map(user => {
         this._userSvc.setUser(user.json());
+        console.log(user.json());
         return user.json();
       });
   }
@@ -26,6 +27,7 @@ export class SecurityService {
       {headers: this.headers })
       .map(user => {
         this._userSvc.setUser(user.json());
+        console.log(user.json());
         return user.json();
       });
   }
