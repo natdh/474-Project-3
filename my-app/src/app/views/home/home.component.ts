@@ -23,17 +23,17 @@ export class HomeComponent implements OnInit {
   private listid: string;
   private desc: string;
   private tasks: Array<string>;
-  private lists: Array<any>;
+  private listIds: Array<any>;
   constructor(private _secSvc: SecurityService, private _userSvc: UserService) { this.name = this.desc = ''; }
 
-  getUserLists = () => {
+  getUserListIds = () => {
     let i = 0;
-    this.lists = new Array();
+    this.listIds = new Array();
     JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
-      this.lists[i]=element['_id'];
+      this.listIds[i]=element['_id'];
       i=i+1;
     });
-    console.log(this.lists);
+    console.log(this.listIds);
   }
 
   logLists() {
