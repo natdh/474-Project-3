@@ -48,6 +48,15 @@ export class SecurityService {
       options);
   }
 
+  public createTask(client: string, taskName: string, taskDesc: string, listID: string, taskDueDate: string){
+    var headers = new Headers();
+    headers.append('Authorization', this.token);
+    var options = {headers:headers};
+    return this._http.post('http://localhost:3000/api/home/list',
+      {name: taskName, details: taskDesc, clientid: client, listid: listID, dueDate: taskDueDate},
+      options);
+  }
+
 
   public logout() {
     this._userSvc.removeUser();
