@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   private taskDetails: string; 
   private taskName: string; 
   private name: string;
+  private _id: string;
   private task: string;
   private details: string;
   private dueDate: string;
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit {
 
   logUser() {
     console.log(this._userSvc.getUser());
+
   }
 
   newList = () => {
@@ -53,9 +55,8 @@ export class HomeComponent implements OnInit {
   }
 
   newTask = () => {
-    //console.log(JSON.parse(this._secSvc.getList('my-app',)));
-    this._secSvc.createTask('my-app', this.taskName, this.details, this.taskName /*NEEDS TO BE CURRENT LIST ID BUT
-      PUTTING THIS HERE SO IT DOESNT BREAK EVERYTHING*/, this.dueDate).subscribe(
+    console.log(this._id);
+    this._secSvc.createTask('my-app', this.name, this.details, this._id, this.dueDate).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
     );
