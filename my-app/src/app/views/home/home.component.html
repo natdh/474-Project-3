@@ -1,24 +1,12 @@
 <div class="col-sm-12 col-sm-offset-4">
   <app-security-login *loggedIn="false" ></app-security-login>
-  <div *loggedIn="true">
-    <div class="panel-heading">
-        My Lists
-    </div>
-    <button (click)="this.isCreateListVisible = true" type="submit" class="btn btn-success btn-sm">
-        New List
-    </button>
-    <!--
-    <form *ngIf="this.isCreateListVisible" class="form-horizontal" role="form" id="form">
-      <div class="form-group">
-        <label for="name" class="col-sm-3 control-label">
-          Name of List</label>
-        <div class="col-sm-9">
-          <input [(ngModel)]="name" type="name" class="form-control" name="name" id="name" placeholder="Enter list name here" required>
-        </div>
+    <div *loggedIn="true">
+      <div class="panel-heading">
+          My Lists
       </div>
       <button (click)="this.isCreateListVisible = true" type="submit" class="btn btn-success btn-sm">
           New List
-      </button>-->
+      </button>
       <form *ngIf="this.isCreateListVisible" class="form-horizontal" role="form" id="form">
           <div class="form-group">
             <label for="name" class="col-sm-3 control-label">
@@ -40,33 +28,38 @@
               Create List</button>
             </div>
           </div>
-      </form>
+        </form>
       <div class="user-lists">
         <div class="listNameDesc" (click)="this.isListDataVisible = !isListDataVisible">
-            {{name}}
+            {{name}}            
           <div class="listDesc">
           {{desc}}
           </div>
         </div>
-        <div class="tasks" *ngIf="this.isListDataVisible">
+      <div class="tasks" *ngIf="this.isListDataVisible">
           <div class="taskView" *ngIf="this.isListDataVisible">
             {{tasks}}
           </div>
         </div>
         <div class="addTask" *ngIf="this.isListDataVisible">
-          <form class="form-horizontal" role="form" id="form">
+          <form class="form-horizontal" role="form" id="form">  
               <div class="form-group">
                   <div class="col-sm-9">
                     <input [(ngModel)]="task" type="name" class="form-control" name="taskName" id="taskName" placeholder="Enter new task here" required>
                   </div>
                 </div>
-          </form>
+          </form>            
         </div>
         <div class="addTaskSubmit" *ngIf="this.isListDataVisible">
-          <button (click)="newTask()" type="submit">
+          <button (click)="newTask(); clear()" type="submit">
             Add
           </button>
         </div>
       </div>
-  </div>
+      </div>
+    <div>
+      <button (click)="getUserLists()">get user lists</button>
+      <button (click)="logUser()">log user</button>
+      <button (click)="logLists()">log lists</button>
+    </div>
 </div>
