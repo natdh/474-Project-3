@@ -45,7 +45,10 @@ button:hover {
 }
 .panel-heading {
     font-size: 25px;
-    font-weight: bold;    
+    font-weight: bold;   
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal;  
 }
 .new-list {
     padding-top: 8px;
