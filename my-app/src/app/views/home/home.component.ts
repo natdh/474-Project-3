@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SecurityService } from '../../security/services/security.service';
-import { ListService } from '../../lists/list.service';
 import { Input } from '@angular/core/src/metadata/directives';
+import { UserService } from '../../security/services/user.service';
+
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,27 @@ export class HomeComponent implements OnInit {
   private listid: string;
   private desc: string;
   private tasks: Array<string>;
-  constructor(private _secSvc: SecurityService) { this.name = this.desc = ''; }
+  private lists: Array<any>;
+  constructor(private _secSvc: SecurityService, private _userSvc: UserService) { this.name = this.desc = ''; }
+
+  getUserLists = () => {
+    let i = 0;
+    this.lists = new Array();
+    JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
+      this.lists[i]=element['_id'];
+      i=i+1;
+    });
+    console.log(this.lists);
+  }
+
+  logLists() {
+    console.log(JSON.parse(this._userSvc.getUser()['user']['lists']));//5c0822eac4df9937ac2a08aa
+  }
+
+  logUser() {
+    console.log(this._userSvc.getUser());
+
+  }
 
   newList = () => {
     this._secSvc.createList('my-app', this.name, this.desc, this.tasks).subscribe(
