@@ -60,16 +60,16 @@ export class SecurityService {
     var headers = new Headers();
     headers.append('Authorization', this.token);
     var options = {headers:headers};
-    return this._http.post('http://localhost:3000/api/home/list',
-    {clientid: client, listid: listID},options);
+    return this._http.get('http://localhost:3000/api/home/list',
+    options);
   }
 
   public getTask(client: string, taskID: string){
     var headers = new Headers();
     headers.append('Authorization', this.token);
     var options = {headers:headers};
-    return this._http.post('http://localhost:3000/api/home/task',
-    {clientid: client, taskid: taskID},options);
+    return this._http.get('http://localhost:3000/api/home/task',
+    options);
   }
 
 
