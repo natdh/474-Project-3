@@ -52,6 +52,8 @@ export class HomeComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
+    this.desc = '';
+    this.name = '';
   }
 
   newTask = () => {
@@ -60,16 +62,8 @@ export class HomeComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
-  }
-
-  clearList() {
-    this.desc = '';
-    this.name = '';
-  }
-
-  clearTask() {
     this.taskDetails = '';
-    this.taskName = ''; // null should work too, but as the type ov the value is string I like to use ''
+    this.taskName = '';
   }
 
   ngOnInit() {

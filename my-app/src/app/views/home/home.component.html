@@ -24,7 +24,7 @@
           </div>
           <div class="form-group last">
             <div class="col-sm-offset-3 col-sm-9">
-              <button (click)="clearList(); newList(); this.isCreateListVisible = false" type="submit" class="btn btn-success btn-sm">
+              <button (click)="newList(); this.isCreateListVisible = false" type="submit" class="btn btn-success btn-sm">
               Create List</button>
             </div>
           </div>
@@ -49,21 +49,21 @@
           <div class="taskName">
             <div class="form-group">
               <div class="col-sm-9">
-                <input [(ngModel)]="taskName" value="clearTaskName" type="name" class="form-control" name="taskName" id="taskName" placeholder="Enter task name here" required>
+                <input [(ngModel)]="taskName" type="name" class="form-control" name="taskName" id="taskName" placeholder="Enter task name here" required>
               </div>
             </div>
           </div>
           <div class="taskDetails">
             <div class="form-group">
               <div class="col-sm-9">
-                <input [(ngModel)]="taskDetails" value="clearTaskDetails" type="details" class="form-control" name="details" id="details" placeholder="Enter task details here" required>
+                <input [(ngModel)]="taskDetails" type="details" class="form-control" name="details" id="details" placeholder="Enter task details here" required>
               </div>
             </div>
           </div>
         </form>
       </div>
       <div class="addTaskSubmit" *ngIf="this.isListDataVisible">
-        <button (click)="newTask(); clearTask()" type="submit">
+        <button (click)="newTask();" type="submit">
           Add Task
         </button>
       </div>
