@@ -7,6 +7,7 @@
     <button (click)="this.isCreateListVisible = true" type="submit" class="btn btn-success btn-sm">
         New List
     </button>
+    <!--
     <form *ngIf="this.isCreateListVisible" class="form-horizontal" role="form" id="form">
       <div class="form-group">
         <label for="name" class="col-sm-3 control-label">
@@ -17,7 +18,7 @@
       </div>
       <button (click)="this.isCreateListVisible = true" type="submit" class="btn btn-success btn-sm">
           New List
-      </button>
+      </button>-->
       <form *ngIf="this.isCreateListVisible" class="form-horizontal" role="form" id="form">
           <div class="form-group">
             <label for="name" class="col-sm-3 control-label">
@@ -39,7 +40,7 @@
               Create List</button>
             </div>
           </div>
-        </form>
+      </form>
       <div class="user-lists">
         <div class="listNameDesc" (click)="this.isListDataVisible = !isListDataVisible">
             {{name}}
@@ -47,7 +48,7 @@
           {{desc}}
           </div>
         </div>
-      <div class="tasks" *ngIf="this.isListDataVisible">
+        <div class="tasks" *ngIf="this.isListDataVisible">
           <div class="taskView" *ngIf="this.isListDataVisible">
             {{tasks}}
           </div>
@@ -67,5 +68,5 @@
           </button>
         </div>
       </div>
-      </div>
+  </div>
 </div>
