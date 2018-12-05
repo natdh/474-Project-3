@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenKey } from '@angular/core/src/view';
-import { ListService } from 'src/app/lists/list.service';
 
 @Injectable()
 export class SecurityService {
@@ -52,7 +51,7 @@ export class SecurityService {
     var headers = new Headers();
     headers.append('Authorization', this.token);
     var options = {headers:headers};
-    return this._http.post('http://localhost:3000/api/home/list',
+    return this._http.post('http://localhost:3000/api/home/task',
       {name: taskName, details: taskDesc, clientid: client, listid: listID, dueDate: taskDueDate},
       options);
   }
@@ -63,6 +62,14 @@ export class SecurityService {
     var options = {headers:headers};
     return this._http.post('http://localhost:3000/api/home/list',
     {clientid: client, listid: listID},options);
+  }
+
+  public getTask(client: string, taskID: string){
+    var headers = new Headers();
+    headers.append('Authorization', this.token);
+    var options = {headers:headers};
+    return this._http.post('http://localhost:3000/api/home/task',
+    {clientid: client, taskid: taskID},options);
   }
 
 
