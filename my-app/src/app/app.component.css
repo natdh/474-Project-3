@@ -7,6 +7,11 @@
     font-size: 16px; 
     font-style: normal; 
     font-variant: normal; 
+    color: #1a7779 !important;
+}
+a{
+    color: #1a7779;
+    text-decoration: none;
 }
 .nav > div {
     text-align: center;

@@ -41,6 +41,7 @@ button:hover {
 }
 .panel-heading {
     font-size: 25px;
+    font-weight: bold;    
 }
 .new-list {
     padding-top: 8px;
@@ -60,4 +61,11 @@ button:hover {
 }
 .user-lists:hover {
     opacity: 0.8;
+}
+.form-group {
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: bold;
+    color: #1a7779;        
 }
