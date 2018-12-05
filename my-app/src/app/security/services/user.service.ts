@@ -9,13 +9,16 @@ export class UserService {
   setUser = (user) => {
     if (user) {
       this._localStorage.set('user', user);
+      //this._localStorage.set('token',JSON.stringify(user.token));
       this.status.next(true);
     } else {
       this._localStorage.remove('user');
+     // this._localStorage.remove('token');
       this.status.next(false);
     }
   }
 
   getUser = () => this._localStorage.get('user');
+  //getToken = () => this._localStorage.get('token');
   removeUser = () => this.setUser(null);
 }
