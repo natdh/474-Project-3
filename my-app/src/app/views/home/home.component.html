@@ -35,19 +35,12 @@
               <div class="listNameDesc" (click)="getUserListIds(); this.isListDataVisible = !isListDataVisible">
                   <div>{{object['name']}}</div>
                   <div>{{object['desc']}}</div>
-                  <div>
-                    <ul>
+                  <div class="tasks" *ngIf="this.isListDataVisible">
                       <div *ngFor="let task of object['tasks']">
-                        <li>
+                        <div class="taskView" *ngIf="this.isListDataVisible">                              
                           <div>{{task['name']}}</div>
-                        </li>
+                        </div>
                       </div>
-                    </ul>
-                  </div>
-              </div>
-              <div class="tasks" *ngIf="this.isListDataVisible">
-                  <div class="taskView" *ngIf="this.isListDataVisible">
-                    <div>{{object['tasks']['name']}}</div>
                   </div>
               </div>
               <div class="addTaskName" *ngIf="this.isListDataVisible">
