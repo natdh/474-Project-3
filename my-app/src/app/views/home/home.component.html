@@ -73,10 +73,6 @@
     </div>
   </div>
   <div>
-    <button (click)="logUser();">log User</button>
-    <button (click)="logLists();">log lists</button>
-    <button (click)="getUserListIds();">get user list Ids</button>
-    <button (click)="getUserLists();">get user lists</button>
-    <button (click)="updateLocalUser();">update local user</button>
+    <button *loggedIn="true" (click)="updateLocalUser();getUserLists()">Update Lists</button>
   </div>
 </div>
