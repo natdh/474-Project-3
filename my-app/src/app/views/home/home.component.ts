@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
   private isListDataVisible = false;
-  private lists: Array<Array<string>>;
+  private lists: Array<Object>;
   private taskDetails: string; 
   private taskName: string; 
   private name: string;
@@ -36,6 +36,16 @@ export class HomeComponent implements OnInit {
     });
     this.listid = this.listIds[i-1];
     //console.log(this.listid);
+  }
+
+  getUserLists = () =>{
+    let i = 0;
+    this.lists = new Array();
+    JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
+      this.lists[i]=element;
+      i=i+1;
+    });
+    console.log(this.lists);
   }
 
   logLists() {

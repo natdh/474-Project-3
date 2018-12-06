@@ -64,6 +64,23 @@
           Add Task
         </button>
       </div>
+      
     </div>
+    <div>
+      <ul>
+        <div *ngFor="let object of lists">
+          <li>
+            <div>name: {{object['name']}}</div>
+            <div>description: {{object['desc']}}</div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <button (click)="logUser();">log User</button>
+    <button (click)="logLists();">log lists</button>
+    <button (click)="getUserListIds();">get user list Ids</button>
+    <button (click)="getUserLists();">get user lists</button>
   </div>
 </div>
