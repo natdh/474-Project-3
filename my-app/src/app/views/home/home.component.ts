@@ -48,6 +48,10 @@ export class HomeComponent implements OnInit {
     //console.log(this.listid);
   }
 
+  logInput = (input: string) => {
+    console.log(input);
+  }
+
   updateLocalUser = () =>{
     this._secSvc.updateLocalUser();
   }
