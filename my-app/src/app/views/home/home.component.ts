@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
 
   updateLocalUser = () =>{
     this._secSvc.updateLocalUser();
-    this.logUser();
   }
 
   getUserLists = () =>{

@@ -39,10 +39,16 @@ export class SecurityService {
   }
 
   public updateLocalUser(){
+    var headers = new Headers();
+    headers.append('Authorization', this.token);
+    var options = {headers:headers};
+    console.log('thing');
+
     return this._http.get('http://localhost:3000/api/home/info',
-      {headers: this.headers })
+      options)
       .map(user => {
         this._userSvc.setUser(user.json());
+        console.log("user");
         console.log(user.json());
         this.token = user.json()['token'];
         return user.json();
