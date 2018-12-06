@@ -33,9 +33,18 @@ export class HomeComponent implements OnInit {
     this._secSvc.updateLocalUser();
     let i = 0;
     this.listIds = new Array();
-    this.listTasks = new Array();
     JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
       this.listIds[i]=element['_id'];
+      i=i+1;
+    });
+    this.listid = this.listIds[i-1];
+    //console.log(this.listid);
+  }
+
+  fillListTasks = () => {
+    let i=0;
+    this.listTasks = new Array();
+    JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
       let j=0;
       this.listTasks[i] = new Array();
       element['tasks'].forEach(task => {
@@ -44,8 +53,6 @@ export class HomeComponent implements OnInit {
       });
       i=i+1;
     });
-    this.listid = this.listIds[i-1];
-    //console.log(this.listid);
   }
 
   logInput = (input: string) => {
