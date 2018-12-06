@@ -96,10 +96,10 @@ button:hover {
 .user-lists {
     background-color: #9d9b9d;
     color: white;
-    padding-top: 10px;
+    padding-top: 8px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 2px;
+    padding-bottom: 8px;
     margin: 6px 0;
     border: none;
     cursor: pointer;
