@@ -33,9 +33,11 @@ export class HomeComponent implements OnInit {
     this._secSvc.updateLocalUser();
     let i = 0;
     this.listIds = new Array();
+    this.listTasks = new Array();
     JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
       this.listIds[i]=element['_id'];
       let j=0;
+      this.listTasks[i] = new Array();
       element['tasks'].forEach(task => {
         this.listTasks[i][j]=task;
         j=j+1;
@@ -89,12 +91,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
     let i = 0;
     this.lists = new Array();
     JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
       this.lists[i]=element;
       i=i+1;
-    });
+    });*/
   }
 
 }
