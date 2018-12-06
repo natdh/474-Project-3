@@ -14,7 +14,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
-  private isListDataVisible: Array<boolean>;
+  private isListDataVisible = false;
   private lists: Array<Object>;
   private taskDetails: string; 
   private taskName: string; 
