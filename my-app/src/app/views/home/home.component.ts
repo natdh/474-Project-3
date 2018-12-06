@@ -79,6 +79,8 @@ export class HomeComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
+    this.name = '';
+    this.desc = '';
   }
 
   newTask = () => {
