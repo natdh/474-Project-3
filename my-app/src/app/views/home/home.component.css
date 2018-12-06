@@ -117,7 +117,7 @@ button:hover {
     opacity: 0.8;
 }
 .listDesc {
-    font-size: medium;
+    font-size: small;
     font-family: "Playfair Display"; 
     font-style: normal; 
     font-variant: normal;
@@ -126,6 +126,9 @@ button:hover {
 }
 .tasks {
     padding-bottom: 9px;
+}
+.description {
+    font-size: small;
 }
 .taskView {
     border: solid 1px;
