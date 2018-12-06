@@ -77,15 +77,6 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  hideShow(event) {
-    const el = event.target as HTMLElement;
-    if (el.style.visibility == "hidden") {
-      el.style.visibility = "visible";
-    } else {
-      el.style.visibility = "hidden";      
-    }
-  }
-
   newTask = () => {
     console.log(this.listid);
     //console.log(JSON.parse(this._secSvc.getList('my-app',)));
