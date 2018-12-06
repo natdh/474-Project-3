@@ -41,7 +41,7 @@ export class SecurityService {
     var headers = new Headers();
     headers.append('Authorization', this.token);
     var options = {headers:headers};
-    console.log('thing');
+    console.log('get user');
 
     return this._http.get('http://localhost:3000/api/home/info',
       options)
@@ -51,7 +51,7 @@ export class SecurityService {
         console.log(user.json());
         this.token = user.json()['token'];
         return user.json();
-      });
+      }).subscribe();
   }
 
   public createList(client: string, listName: string, listDesc: string, tasksList: Array<string>){

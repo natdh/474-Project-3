@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   private lists: Array<Object>;
   private taskDetails: string; 
   private taskName: string; 
-  private taskDetails: string;
   private name: string;
   private task: string;
   private details: string;
