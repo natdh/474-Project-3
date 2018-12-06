@@ -49,7 +49,6 @@ export class SecurityService {
         this._userSvc.setUser(user.json());
         console.log("user");
         console.log(user.json());
-        this.token = user.json()['token'];
         return user.json();
       }).subscribe();
   }
