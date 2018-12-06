@@ -30,11 +30,20 @@
           </div>
         </form>
       
-          <div *ngFor="let object of lists; let i=index">
+          <div *ngFor="let object of lists">
             <div class="user-lists">
               <div class="listNameDesc" (click)="getUserListIds(); this.isListDataVisible = !isListDataVisible">
                   <div>{{object['name']}}</div>
                   <div>{{object['desc']}}</div>
+                  <div>
+                    <ul>
+                      <div *ngFor="let task of object['tasks']">
+                        <li>
+                          <div>{{task['name']}}</div>
+                        </li>
+                      </div>
+                    </ul>
+                  </div>
               </div>
               <div class="tasks" *ngIf="this.isListDataVisible">
                   <div class="taskView" *ngIf="this.isListDataVisible">
