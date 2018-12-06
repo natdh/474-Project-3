@@ -116,6 +116,13 @@ button:hover {
 .user-lists:hover {
     opacity: 0.8;
 }
+.tasksHeader {
+    font-size: large;
+    font-family: "Playfair Display"; 
+    font-style: normal; 
+    font-variant: normal;
+    padding-top: 10px;
+}
 .listDesc {
     font-size: medium;
     font-family: "Playfair Display"; 
@@ -127,11 +134,20 @@ button:hover {
 .tasks {
     padding-bottom: 9px;
 }
+.description {
+    font-size: medium;
+}
+.listName {
+    font-size: larger;
+}
 .taskView {
     border: solid 1px;
-    padding: 7px 0px;
+    padding: 5px 0px;
     width: 100%;
     padding-right: 0px;
+    margin-top: 8px;
+    padding-left: 6px;
+    padding-top: 4px;
 }
 .form-group {
     font-family: "Playfair Display"; 
