@@ -34,7 +34,8 @@ export class HomeComponent implements OnInit {
       this.listIds[i]=element['_id'];
       i=i+1;
     });
-    console.log(this.listIds);
+    this.listid = this.listIds[i-1];
+    //console.log(this.listid);
   }
 
   logLists() {
@@ -53,8 +54,9 @@ export class HomeComponent implements OnInit {
   }
 
   newTask = () => {
+    console.log(this.listid);
     //console.log(JSON.parse(this._secSvc.getList('my-app',)));
-    this._secSvc.createTask('my-app', this.taskName, this.details, this.taskName /*NEEDS TO BE CURRENT LIST ID BUT
+    this._secSvc.createTask('my-app', this.taskName, this.details, this.listid /*NEEDS TO BE CURRENT LIST ID BUT
       PUTTING THIS HERE SO IT DOESNT BREAK EVERYTHING*/, this.dueDate).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)

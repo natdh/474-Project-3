@@ -12,4 +12,8 @@ export class AppComponent {
   constructor(private _secSvc: SecurityService) { }
 
   logout = () => this._secSvc.logout();
+
+  reloadPage() {
+    location.reload();
+  }
 }
