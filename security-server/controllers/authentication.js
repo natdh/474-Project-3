@@ -19,8 +19,11 @@ exports.login = function (req, res, next) {
         user.comparePassword(req.body.password, function (err, isMatch) {
             if (err) { return res.status(400).json({ error: "bad data" }); }
             if (!isMatch) { return res.status(400).json({ error: 'Your login details could not be verified. Please try again.' }); }
-
+                 if (user.lists != undefined && user.lists.length > 0) {
+                    user.lists = JSON.parse(user.lists);
+                }
                 let userInfo = user.toJson();
+            
                 res.status(200).json({
                     token: 'Bearer ' + generateToken(userInfo),
                     user: userInfo

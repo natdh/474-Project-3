@@ -44,7 +44,7 @@ exports.createList = function (req, res, next) {
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); } 
-        //req.user.lists = JSON.parse(req.user.lists);
+        req.user.lists = JSON.parse(req.user.lists);
         let listInfo = list.toJson();
         let userInfo = req.user.toJson();
         res.status(201).json({
@@ -92,7 +92,7 @@ exports.updateList = function(req,res,next){
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        //req.user.lists = JSON.parse(req.user.lists);
+        req.user.lists = JSON.parse(req.user.lists);
         let listInfo = list.toJson();
         let userInfo = req.user.toJson();
         return res.status(201).json({
@@ -124,7 +124,7 @@ exports.deleteList = function(req,res,next){
             req.user.lists = JSON.stringify(req.user.lists);
             req.user.save(function (err, user) {
                 if (err) { return next(err); }
-                //req.user.lists = JSON.parse(req.user.lists);
+                req.user.lists = JSON.parse(req.user.lists);
                 let userInfo = user.toJson();
                 res.status(201).json({
                     deleted: true,
@@ -216,7 +216,7 @@ exports.createTask = function(req,res,next){
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        //req.user.lists = JSON.parse(req.user.lists);
+        req.user.lists = JSON.parse(req.user.lists);
         let userInfo = req.user.toJson();
         res.status(201).json({
             task : task, 
@@ -277,7 +277,7 @@ exports.updateTask = function (req, res, next) {
     req.user.lists = JSON.stringify(req.user.lists);
     req.user.save(function (err, user) {
         if (err) { return next(err); }
-        //req.user.lists = JSON.parse(req.user.lists);
+        req.user.lists = JSON.parse(req.user.lists);
         let userInfo = req.user.toJson();
         res.status(201).json({
             task: task, 
@@ -323,7 +323,7 @@ exports.deleteTask = function (req, res, next) {
         req.user.lists = JSON.stringify(req.user.lists);
         req.user.save(function (err, user) {
             if (err) { return next(err); }
-            //req.user.lists = JSON.parse(req.user.lists);
+            req.user.lists = JSON.parse(req.user.lists);
             let userInfo = user.toJson();
             res.status(201).json({
                 deleted: true,

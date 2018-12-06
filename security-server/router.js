@@ -23,9 +23,9 @@ module.exports = function(app) {
     
     // /api/home/info -- GET -- needs authentication
     otherRoutes.get('/info',passportService.requireAuth,function(req,res,next){
-        //if (req.user.lists != undefined && req.user.lists.length > 0) {
-            //req.user.lists = JSON.parse(req.user.lists);
-        //}
+        if (req.user.lists != undefined && req.user.lists.length > 0) {
+            req.user.lists = JSON.parse(req.user.lists);
+        }
         res.json({user: req.user.toJson()})
     });
         
