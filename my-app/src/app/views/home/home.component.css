@@ -9,6 +9,7 @@ button {
     font-family: "Playfair Display"; 
     font-style: normal; 
     font-variant: normal; 
+    margin-bottom: 4px;    
 }
 .col-sm-12 {
     border: 2px black;
