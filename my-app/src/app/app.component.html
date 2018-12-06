@@ -12,7 +12,7 @@
           <div routerLinkActive='active'>
             <a routerLink="home">Home</a>
           </div>
-          <div *loggedIn="true"><a href="javascript:void(0)" (click)='logout()'>Logout</a></div>
+          <div *loggedIn="true"><a href="javascript:void(0)" (click)='logout(); reloadPage()'>Logout</a></div>
         </div>
     </div>
   </div>

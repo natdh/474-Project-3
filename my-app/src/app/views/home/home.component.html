@@ -30,7 +30,7 @@
           </div>
         </form>
       <div class="user-lists">
-        <div class="listNameDesc" (click)="this.isListDataVisible = !isListDataVisible">
+        <div class="listNameDesc" (click)="getUserListIds(); this.isListDataVisible = !isListDataVisible">
           {{name}}            
           <div class="listDesc">
           {{desc}}
@@ -38,10 +38,7 @@
         </div>
       <div class="tasks" *ngIf="this.isListDataVisible">
           <div class="taskView" *ngIf="this.isListDataVisible">
-            <div *ngFor="let task of tasks">
-              {{task.task}}
-              {{task.details}}
-            </div>
+            {{tasks}}
           </div>
       </div>
       <div class="addTaskName" *ngIf="this.isListDataVisible">
@@ -63,15 +60,28 @@
         </form>
       </div>
       <div class="addTaskSubmit" *ngIf="this.isListDataVisible">
-        <button (click)="newTask(); clear()" type="submit">
+        <button (click)="newTask();" type="submit">
           Add Task
         </button>
       </div>
+      
+    </div>
+    <div>
+      <ul>
+        <div *ngFor="let object of lists">
+          <li>
+            <div>name: {{object['name']}}</div>
+            <div>description: {{object['desc']}}</div>
+          </li>
+        </div>
+      </ul>
     </div>
   </div>
   <div>
-    <button (click)="getUserListIds()">get user list IDs</button>
-    <button (click)="logUser()">log user</button>
-    <button (click)="logLists()">log lists</button>
+    <button (click)="logUser();">log User</button>
+    <button (click)="logLists();">log lists</button>
+    <button (click)="getUserListIds();">get user list Ids</button>
+    <button (click)="getUserLists();">get user lists</button>
+    <button (click)="updateLocalUser();">update local user</button>
   </div>
 </div>

@@ -38,6 +38,23 @@ export class SecurityService {
       });
   }
 
+  public updateLocalUser(){
+    var headers = new Headers();
+    headers.append('Authorization', this.token);
+    var options = {headers:headers};
+    console.log('thing');
+
+    return this._http.get('http://localhost:3000/api/home/info',
+      options)
+      .map(user => {
+        this._userSvc.setUser(user.json());
+        console.log("user");
+        console.log(user.json());
+        this.token = user.json()['token'];
+        return user.json();
+      });
+  }
+
   public createList(client: string, listName: string, listDesc: string, tasksList: Array<string>){
     var headers = new Headers();
     headers.append('Authorization', this.token);
@@ -60,16 +77,16 @@ export class SecurityService {
     var headers = new Headers();
     headers.append('Authorization', this.token);
     var options = {headers:headers};
-    return this._http.post('http://localhost:3000/api/home/list',
-    {clientid: client, listid: listID},options);
+    return this._http.get('http://localhost:3000/api/home/list',
+    options);
   }
 
   public getTask(client: string, taskID: string){
     var headers = new Headers();
     headers.append('Authorization', this.token);
     var options = {headers:headers};
-    return this._http.post('http://localhost:3000/api/home/task',
-    {clientid: client, taskid: taskID},options);
+    return this._http.get('http://localhost:3000/api/home/task',
+    options);
   }
 
 
