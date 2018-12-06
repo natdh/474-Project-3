@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
       data => console.log('Data:' + data),
       err => console.log(err)
     );
-    this.router.navigateByUrl('/home');    
+    this.router.navigateByUrl('/home');   
   }
 
   ngOnInit() {

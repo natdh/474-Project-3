@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   private desc: string;
   private tasks: Array<string>;
   private listIds: Array<any>;
+  private listTasks: Array<Array<Object>>;
   constructor(private _secSvc: SecurityService, private _userSvc: UserService) { this.name = this.desc = ''; }
 
   getUserListIds = () => {
@@ -34,6 +35,11 @@ export class HomeComponent implements OnInit {
     this.listIds = new Array();
     JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
       this.listIds[i]=element['_id'];
+      let j=0;
+      element['tasks'].forEach(task => {
+        this.listTasks[i][j]=task;
+        j=j+1;
+      });
       i=i+1;
     });
     this.listid = this.listIds[i-1];
