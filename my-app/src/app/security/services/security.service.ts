@@ -21,7 +21,6 @@ export class SecurityService {
         console.log(user.json());
         this.token = user.json()['token'];
         console.log(this.token);
-       // user.json()['user'].lists.forEach(function(item){item.forEach(function(inner){console.log(inner);})});
         return user.json();
       });
   }
