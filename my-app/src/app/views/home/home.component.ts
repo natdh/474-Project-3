@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { SecurityService } from '../../security/services/security.service';
 import { Input } from '@angular/core/src/metadata/directives';
 import { UserService } from '../../security/services/user.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { UserService } from '../../security/services/user.service';
 export class HomeComponent implements OnInit {
   loggedIn = false;
   private isCreateListVisible = false;
-  private isListDataVisible = false;
+  private isListDataVisible: Array<boolean>;
   private lists: Array<Object>;
   private taskDetails: string; 
   private taskName: string; 
@@ -68,6 +69,15 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  hideShow(event) {
+    const el = event.target as HTMLElement;
+    if (el.style.visibility == "hidden") {
+      el.style.visibility = "visible";
+    } else {
+      el.style.visibility = "hidden";      
+    }
+  }
+
   newTask = () => {
     console.log(this.listid);
     //console.log(JSON.parse(this._secSvc.getList('my-app',)));
@@ -82,6 +92,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    let i = 0;
+    this.lists = new Array();
+    JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
+      this.lists[i]=element;
+      i=i+1;
+    });
   }
 
 }
