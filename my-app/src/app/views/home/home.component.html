@@ -33,9 +33,10 @@
           <div *ngFor="let object of lists">
             <div class="user-lists">
               <div class="listNameDesc" (click)="getUserListIds(); this.isListDataVisible = !isListDataVisible">
-                  <div>{{object['name']}}</div>
+                  <div class="listName">{{object['name']}}</div>
                   <div class="description">{{object['desc']}}</div>
                   <div class="tasks" *ngIf="this.isListDataVisible">
+                    <div class="tasksHeader">Tasks:</div>
                       <div *ngFor="let task of object['tasks']">
                         <div class="taskView" *ngIf="this.isListDataVisible">                              
                           <div>{{task['name']}}</div>
