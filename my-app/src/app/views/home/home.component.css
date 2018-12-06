@@ -149,6 +149,11 @@ button:hover {
     padding-left: 6px;
     padding-top: 4px;
 }
+
+.taskDets {
+    font-size:small;
+}
+
 .form-group {
     font-family: "Playfair Display"; 
     font-style: normal; 
