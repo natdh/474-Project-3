@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   private lists: Array<Object>;
   private taskDetails: string; 
   private taskName: string; 
+  private taskDetails: string;
   private name: string;
   private task: string;
   private details: string;
@@ -80,7 +81,7 @@ export class HomeComponent implements OnInit {
   newTask = () => {
     console.log(this.listid);
     //console.log(JSON.parse(this._secSvc.getList('my-app',)));
-    this._secSvc.createTask('my-app', this.taskName, this.details, this.listid /*NEEDS TO BE CURRENT LIST ID BUT
+    this._secSvc.createTask('my-app', this.taskName, this.taskDetails, this.listid /*NEEDS TO BE CURRENT LIST ID BUT
       PUTTING THIS HERE SO IT DOESNT BREAK EVERYTHING*/, this.dueDate).subscribe(
       data => console.log('Data:' + data),
       err => console.log(err)
