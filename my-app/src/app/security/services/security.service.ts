@@ -38,6 +38,17 @@ export class SecurityService {
       });
   }
 
+  public updateLocalUser(){
+    return this._http.get('http://localhost:3000/api/home/info',
+      {headers: this.headers })
+      .map(user => {
+        this._userSvc.setUser(user.json());
+        console.log(user.json());
+        this.token = user.json()['token'];
+        return user.json();
+      });
+  }
+
   public createList(client: string, listName: string, listDesc: string, tasksList: Array<string>){
     var headers = new Headers();
     headers.append('Authorization', this.token);

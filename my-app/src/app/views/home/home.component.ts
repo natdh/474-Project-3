@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(private _secSvc: SecurityService, private _userSvc: UserService) { this.name = this.desc = ''; }
 
   getUserListIds = () => {
+    this._secSvc.updateLocalUser();
     let i = 0;
     this.listIds = new Array();
     JSON.parse(this._userSvc.getUser()['user']['lists']).forEach(element => {
@@ -36,6 +37,11 @@ export class HomeComponent implements OnInit {
     });
     this.listid = this.listIds[i-1];
     //console.log(this.listid);
+  }
+
+  updateLocalUser = () =>{
+    this._secSvc.updateLocalUser();
+    this.logUser();
   }
 
   getUserLists = () =>{
